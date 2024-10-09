@@ -1,0 +1,107 @@
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  align-items: center;
+  background-color: rgb(142, 34, 34);
+}
+nav ul {
+  display: flex;
+  gap: 50px;
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0px;
+  margin: 20px;
+}
+
+nav ul li {
+  background-color: brown;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: 0px;
+  color: white;
+  cursor: pointer;
+}
+nav ul li:hover {
+  background-color: rgb(173, 70, 70);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.inputData {
+  width: 30%;
+  background-color: darkgray;
+  border-radius: 10px;
+  margin: auto;
+  padding: 20px 40px 40px;
+}
+
+.inputData h3 {
+  margin: 0;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  padding: 10px 0px;
+}
+
+input[type="text"] {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 5px;
+  margin: 5px 0px;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.btn {
+  background-color: rgb(27, 93, 215);
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  margin-top: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:hover {
+  background-color: rgb(33, 33, 234);
+}
+
+#dataList {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.content {
+  width: 30%;
+  background-color: darkgray;
+  border-radius: 10px;
+  margin: auto;
+  padding: 20px 40px 40px;
+  justify-content: center;
+}
+
+.content h3{
+  text-align: center;
+}
+
+.content li  {
+  text-align: start;
+  padding: 5px;
+  font-size: 18px;
+}

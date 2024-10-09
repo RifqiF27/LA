@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+      <nav>
+        <ul>
+          <li onclick="showInputForm()">Input Data</li>
+          <li onclick="showDataList()">List Data</li>
+        </ul>
+      </nav>
+    <div id="container" class="container">
+      <div class="inputData">
+        <h3>Form Input</h3>
+        <form id="dataForm">
+          <label for="name">Nama</label>
+          <input type="text" id="name" placeholder="Nama..." />
+          <button type="button" class="btn" id="saveButton">Save</button>
+          
+        </form>
+      </div>
+    </div>
+    <div id="dataList" style="display: none">
+      <div class="content">
+          <h3>Daftar Nama </h3>
+                <ol id="list"></ol>
+        </div>
+    </div>
+    <script src="dataInput.js"></script>
+  </body>
+</html>
