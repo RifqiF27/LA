@@ -1,0 +1,368 @@
+body {
+  background: #121212;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  color: #adb7be;
+}
+/* Header */
+.nav {
+  width: 100%;
+  position: fixed;
+  padding: 8px 16px;
+  background: #121212;
+  border-bottom: 1px #575a6d solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Memastikan elemen vertikal rata tengah */
+}
+.list {
+  display: flex; /* Menggunakan flexbox untuk daftar */
+  gap: 32px; /* Jarak antar item */
+  margin: 0 60px;
+  list-style-type: none;
+}
+
+.text a {
+  color: #adb7be; /* Warna teks */
+  font-size: 20px; /* Ukuran font */
+  font-weight: 400; /* Ketebalan font */
+  line-height: 28px; /* Tinggi baris */
+  text-decoration: none;
+}
+.text a:hover {
+  color: #ffffff;
+}
+
+/* main */
+
+/* Section Home */
+.container {
+  max-width: 1200px; /* Mengatur lebar maksimum untuk responsivitas */
+  margin: auto; /* Mengatur margin otomatis untuk pusat */
+  padding: 20px; /* Padding di sekitar konten */
+  display: flex; /* Menggunakan flexbox untuk menempatkan konten */
+  flex-direction: row; /* Mengatur arah flex menjadi baris */
+  align-items: center; /* Rata tengah secara vertikal */
+  gap: 40px; /* Jarak antar elemen */
+}
+.sectionHome {
+  margin: 40px 0;
+  padding: 40px; /* Padding untuk isi section */
+  background: rgba(18, 18, 18, 0.8); /* Latar belakang semi-transparan */
+}
+.Heading1 {
+  margin-bottom: 20px; /* Jarak bawah */
+}
+.HelloIM {
+  color: #38bdf8; /* Warna teks */
+  font-size: 48px; /* Ukuran font */
+  font-weight: 800; /* Ketebalan font */
+}
+.WebDeveloper {
+  color: #ff6347; /* Warna teks */
+  font-size: 72px; /* Ukuran font */
+  font-weight: 800; /* Ketebalan font */
+}
+.Paragraph {
+  margin-top: 20px;
+  margin-bottom: 40px; /* Jarak bawah */
+  color: rgba(137, 142, 145, 0.74); /* Warna teks */
+  font-size: 20px; /* Ukuran font */
+  text-align: justify;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px; /* Padding untuk tombol */
+  background: linear-gradient(
+    171deg,
+    #00335a 0%,
+    #1b78fb 50%,
+    #3cf2ff 100%
+  ); /* Gradient */
+  border: none;
+  margin-right: 20px ;
+  border-radius: 12px; /* Sudut melengkung */
+  color: white; /* Warna teks */
+  font-size: 16px; /* Ukuran font */
+  cursor: pointer; /* Pointer saat hover */
+  transition: background 0.3s; /* Animasi transisi latar belakang */
+}
+.button a {
+  color: white; /* Warna teks */
+  font-size: 16px; /* Ukuran font */
+  font-weight: 400; /* Ketebalan font */
+  text-decoration: none;
+  
+}
+.button:hover {
+  background: #1b78fb; /* Ubah warna saat hover */
+}
+.Image {
+  width: 300px; /* Ukuran gambar */
+  height: 300px; /* Ukuran gambar */
+  border-radius: 9999px; /* Sudut melengkung */
+}
+.Border {
+  width: 600px;
+  padding: 0 20px;
+  height: 130px;
+  border-radius: 6px;
+  border: 1px #33353f solid;
+  display: flex;
+  justify-content: center; /* Mengatur semua elemen secara horizontal */
+  align-items: center; /* Mengatur semua elemen secara vertikal */
+  margin: 20px auto; /* Mengatur margin otomatis untuk pusat */
+}
+.Heading2 {
+  margin: 0 40px; /* Jarak horizontal antar Heading2 */
+  text-align: center; /* Rata tengah untuk teks di Heading2 */
+}
+.Container .Heading2 .Container {
+  display: flex; /* Flexbox untuk isi Heading2 */
+  justify-content: center; /* Rata tengah untuk isi */
+  width: 74.34px; /* Lebar kontainer isi */
+  height: 40px; /* Tinggi kontainer isi */
+}
+
+/* CSS untuk About section */
+.Heading2AboutMe {
+  color: white;
+  font-size: 36px;
+
+  font-weight: 700;
+  line-height: 40px;
+}
+.AboutParagraph {
+  color: white;
+  font-size: 18px;
+
+  font-weight: 400;
+  line-height: 28px;
+  margin: 20px 0;
+}
+.skills {
+  padding: 0;
+  color: white;
+  list-style-type: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-end: auto;
+  margin-top: 10px;
+}
+.content {
+  padding: 0;
+  color: white;
+  list-style-type: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-top: 10px;
+}
+
+/* Tambahan untuk About Section Baru */
+.sectionAbout {
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  margin: 40px;
+  gap: 40px;
+  padding: 40px;
+}
+.AboutImage {
+  width: 500px;
+  height: 500px;
+  border-radius: 20px;
+}
+.AboutLinks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.AboutLinkText {
+  text-align: center;
+  color: #adb7be;
+  font-size: 16px;
+
+  font-weight: 600;
+  line-height: 24px;
+  cursor: pointer;
+}
+.AboutLinkText:hover {
+  color: #ffffff;
+}
+.AboutLinkText.active {
+  color: #ffffff; /* Highlight color for active link */
+  font-weight: 700; /* Make it bold */
+}
+.AboutSkillsList {
+  margin-top: 10px;
+}
+
+/* Projects section */
+.containerProjects {
+  margin: 40px;
+}
+.headingMyProjects {
+  text-align: center;
+  color: white;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 40px;
+  margin-bottom: 40px;
+}
+.card {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.Item {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.headingTitleCard {
+  background: #181818;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: -8px;
+}
+.headingCard {
+  color: white;
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: 600;
+}
+.description {
+  color: #adb7be;
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+/* Contact */
+.sectionContact {
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  margin: 40px;
+  justify-content: space-between;
+}
+.contact {
+  width: 100%;
+  max-width: 500px;
+}
+
+.headingContact {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  /* line-height: 28px; */
+}
+
+.paragraphContact {
+  color: #adb7be;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  /* word-wrap: break-word; */
+  text-align: justify;
+}
+
+.formContact {
+  width: 100%;
+  max-width: 400px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  display: inline-flex;
+}
+
+.labelContact {
+  color: #adb7be;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  word-wrap: break-word;
+}
+
+.inputContact {
+  align-self: stretch;
+  padding: 12px;
+  background: #18191e;
+  border-radius: 8px;
+  border: 1px #33353f solid;
+  color: white;
+}
+
+.textArea {
+  width: 100%;
+  padding: 12px;
+  background: #18191e;
+  border-radius: 8px;
+  border: 1px #33353f solid;
+  box-sizing: border-box;
+  color: white;
+}
+
+.buttonContact {
+  align-self: stretch;
+  height: 40px;
+  margin: 10px 0;
+  background: #1e293b;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.buttonContact:hover {
+  background: #354969;
+}
+
+/* Footer */
+.footer {
+  height: 100px;
+  background-color: #18191e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  border-top: 0.5px #33353f solid;
+}
+
+.footer img {
+  width: 50px;
+  height: 50px;
+  border-radius: 20%;
+}
+
+.licency {
+  color: #475569;
+  font-size: 16px;
+  text-align: center;
+  line-height: 24px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 30px;
+}
+
+.social-icons .icon {
+  color: white;
+  font-size: 36px;
+}
+
+.social-icons .icon:hover {
+  color: #0a66c2; /* Warna saat hover */
+}
