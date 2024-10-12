@@ -30,50 +30,59 @@ const contentData = {
 };
 
 function click(type) {
-  let content = ""; // Variable untuk menyimpan konten HTML
-    
-  // Ambil array yang sesuai dari contentData berdasarkan type
-  const items = contentData[type];
-  console.log(type,"ini items");
-  
+  let content = "";
 
-  // Loop melalui array dan buat elemen <li> untuk setiap item
+  const items = contentData[type];
+  console.log(type, "ini items");
+
   if (type === "skills") {
-    content += `<ul class="${type}">`; // Open <ul> for skills
+    content += `<ul class="${type}">`;
     for (let i = 0; i < items.length; i++) {
-      content += `<li>${items[i]}</li>`; // Add each skill as <li>
+      content += `<li>${items[i]}</li>`;
     }
-    content += `</ul>`; // Close <ul> for skills
+    content += `</ul>`;
   } else {
-    content += `<ul class="content">`; // Open <ul> for other categories
+    content += `<ul class="content">`;
     for (let i = 0; i < items.length; i++) {
-      content += `<li>${items[i]}</li>`; // Add each item as <li>
+      content += `<li>${items[i]}</li>`;
     }
-    content += `</ul>`; // Close <ul> for other categories
+    content += `</ul>`;
   }
 
-  // Masukkan konten <li> ke dalam elemen dengan class .content
-  document.querySelector(".AboutSkillsList").innerHTML = content;
+  document.querySelector(".aboutSkillsList").innerHTML = content;
 }
 
-document.querySelectorAll(".AboutLinkText").forEach((link) => {
+document.querySelectorAll(".aboutLinkText").forEach((link) => {
   link.addEventListener("click", function () {
-    const target = this.getAttribute("data-target"); // Ambil target dari atribut data-target
-    // console.log(target, "ini target");
-    // Remove active class from all links
-    document.querySelectorAll(".AboutLinkText").forEach((link) => {
-        link.classList.remove("active");
-      });
-  
-      // Add active class to the clicked link
-      this.classList.add("active");
-  
-    
-    click(target); // Panggil fungsi showContent dengan target yang sesuai
+    const target = this.getAttribute("data-target");
+
+    document.querySelectorAll(".aboutLinkText").forEach((link) => {
+      link.classList.remove("active");
+    });
+
+    this.classList.add("active");
+
+    click(target);
   });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  click("skills"); // Menampilkan daftar skills saat halaman dimuat
-  document.querySelector('.AboutLinkText[data-target="skills"]').classList.add("active");
+  click("skills");
+  document
+    .querySelector('.aboutLinkText[data-target="skills"]')
+    .classList.add("active");
 });
+
+document
+  .getElementById("formContact")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    let subject = document.getElementById("subject").value;
+    let message = document.getElementById("message").value;
+
+    window.location.href = `mailto:rifqifadluloh27@gmail.com?subject=${subject}&body=${message} text`;
+
+    setTimeout(function () {
+      window.location.reload();
+    }, 1000);
+  });

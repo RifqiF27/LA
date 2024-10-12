@@ -3,14 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Web Profile Rifqi-Fadluloh</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="assets/logo.png" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
   </head>
   <body>
+    <!-- Navbar -->
     <header>
       <nav>
         <div class="nav">
@@ -28,18 +30,19 @@
         </div>
       </nav>
     </header>
-
+    <!-- Main -->
     <main>
+      <!-- Home -->
       <section id="home">
         <div class="container">
           <div class="sectionHome">
-            <div class="Heading1">
-              <div class="HelloIM">
-                Hello, I'm <span style="color: #faa500">Rifqi</span>
-              </div>
-              <div class="WebDeveloper">Software Engineer</div>
+            <div class="headingHome">
+              <h1 class="helloIm">
+                Hello, I'm <span style="color: #fa8e00">Rifqi</span>
+              </h1>
+              <div class="webDeveloper">Software Engineer</div>
             </div>
-            <p class="Paragraph">
+            <p class="paragraphHome">
               As a dedicated web developer and designer, I thrive on the synergy
               of code, design, and technology to craft visually stunning and
               highly functional digital experiences. My ultimate goal is to
@@ -61,16 +64,15 @@
             </button>
           </div>
           <img
-            class="Image"
+            class="imageHome"
             src="https://eref.web.id/_next/image?url=%2Fimages%2Fprofile-image.png&w=640&q=75"
             alt="Profile Image"
           />
         </div>
 
-        <div class="Border">
-          <!-- Pengguna -->
-          <div class="Heading2">
-            <div class="container">
+        <div class="borderHome">
+          <div class="headingBorder">
+            <div class="headingBorderVal">
               <div
                 style="
                   color: white;
@@ -79,7 +81,7 @@
                   line-height: 40px;
                 "
               >
-                3+
+                8
               </div>
             </div>
             <div
@@ -95,8 +97,8 @@
             </div>
           </div>
 
-          <div class="Heading2">
-            <div class="container">
+          <div class="headingBorder">
+            <div class="headingBorderVal">
               <div
                 style="
                   color: white;
@@ -105,7 +107,7 @@
                   line-height: 40px;
                 "
               >
-                0
+                ~100
               </div>
             </div>
             <div
@@ -121,8 +123,8 @@
             </div>
           </div>
 
-          <div class="Heading2">
-            <div class="container">
+          <div class="headingBorder">
+            <div class="headingBorderVal">
               <div
                 style="
                   color: white;
@@ -147,8 +149,8 @@
             </div>
           </div>
 
-          <div class="Heading2">
-            <div class="container">
+          <div class="headingBorder">
+            <div class="headingBorderVal">
               <div
                 style="
                   color: white;
@@ -157,7 +159,7 @@
                   line-height: 40px;
                 "
               >
-                5
+                5+
               </div>
             </div>
             <div
@@ -174,109 +176,144 @@
           </div>
         </div>
       </section>
+      <!-- About -->
       <section id="about">
         <div class="container">
           <div class="sectionAbout">
             <img
-              class="Image AboutImage"
+              class="imageAbout"
               src="assets/about.png"
               alt="About Me Image"
             />
             <div style="flex: 1">
-              <div class="Heading2AboutMe">About Me</div>
-              <p class="Paragraph">
+              <div class="headingAbout">About Me</div>
+              <p class="paragraphAbout">
                 I am a highly motivated individual with a passion for technology
                 and problem-solving. With a strong foundation in electrical
-                engineering, I recently completed the Hacktiv8 Full Stack
-                JavaScript Immersive Program. This immersive experience has not
-                only expanded my technical toolkit, equipping me with a wide
-                range of technical skills, but has also ignited my curiosity to
-                explore the endless possibilities within the world of
-                technology. I am dedicated to continuous learning and thrive in
-                dynamic and challenging environments.
+                engineering, I recently completed the Lumoshive Academy backend
+                golang Program. This immersive experience has not only expanded
+                my technical toolkit, equipping me with a wide range of
+                technical skills, but has also ignited my curiosity to explore
+                the endless possibilities within the world of technology. I am
+                dedicated to continuous learning and thrive in dynamic and
+                challenging environments.
               </p>
-              <div class="AboutLinks">
-                <div class="Text AboutLinkText active" data-target="skills">
+              <div class="aboutLinks">
+                <div class="Text aboutLinkText active" data-target="skills">
                   Skills
                 </div>
-                <div class="Text AboutLinkText" data-target="education">
+                <div class="Text aboutLinkText" data-target="education">
                   Education
                 </div>
-                <div class="Text AboutLinkText" data-target="experience">
+                <div class="Text aboutLinkText" data-target="experience">
                   Experience
                 </div>
-                <div class="Text AboutLinkText" data-target="certification">
+                <div class="Text aboutLinkText" data-target="certification">
                   Certifications
                 </div>
               </div>
-              <div class="AboutSkillsList"></div>
+              <div class="aboutSkillsList"></div>
             </div>
           </div>
         </div>
       </section>
+      <!-- Projects -->
       <section id="projects">
         <div class="container">
           <div class="containerProjects">
             <div class="headingMyProjects">My Projects</div>
 
-            <div class="card">
-              <div class="Item">
-                <img
-                  class="Image"
-                  style="width: 100%; height: 288px; border-radius: 12px"
-                  src="https://via.placeholder.com/448x288"
-                />
-                <div class="headingTitleCard">
-                  <div class="headingCard">Levi's Cloning</div>
-                  <div class="description">
-                    Cloning Levi's website with React.js. There are 3 websites
-                    in total. First one is for customer/user, second is for the
-                    admin, and the third one is a mobile app.
+            <div
+              class="card"
+              style="--width: 280px; --height: 480px; --quantity: 8"
+            >
+              <div class="listCard">
+                <div class="item" style="--position: 1">
+                  <img class="Image" src="assets/levis.png" />
+                  <div class="headingTitleCard">
+                    <div class="headingCard">Levi's Cloning</div>
+                    <div class="description">
+                      Cloning Levi's website with React.js. There are 3 websites
+                      in total. First one is for customer/user, second is for
+                      the admin, and the third one is a mobile app.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="Item">
-                <img
-                  class="Image"
-                  style="width: 100%; height: 288px; border-radius: 12px"
-                  src="https://via.placeholder.com/448x288"
-                />
-                <div class="headingTitleCard">
-                  <div class="headingCard">Rent Room</div>
-                  <div class="description">
-                    A room rental web app simplifies finding, booking, and
-                    managing rooms. Users create profiles, browse listings with
-                    detailed room info, photos, and amenities.
+                <div class="item" style="--position: 2">
+                  <img class="Image" src="assets/rentRoom.png" />
+                  <div class="headingTitleCard">
+                    <div class="headingCard">Rent Room</div>
+                    <div class="description">
+                      A room rental web app simplifies finding, booking, and
+                      managing rooms. Users create profiles, browse listings
+                      with detailed room info, photos, and amenities.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="Item">
-                <img
-                  class="Image"
-                  style="width: 100%; height: 288px; border-radius: 12px"
-                  src="https://via.placeholder.com/448x288"
-                />
-                <div class="headingTitleCard">
-                  <div class="headingCard">Web Portfolio</div>
-                  <div class="description">
-                    A personal web portfolio showcasing my skills, projects, and
-                    achievements. This portfolio provides a glimpse into my
-                    technical expertise, creativity, and dedication.
+                <div class="item" style="--position: 3">
+                  <img class="Image" src="assets/portfolio.png" />
+                  <div class="headingTitleCard">
+                    <div class="headingCard">Web Portfolio</div>
+                    <div class="description">
+                      A personal web portfolio showcasing my skills, projects,
+                      and achievements. This portfolio provides a glimpse into
+                      my technical expertise, creativity, and dedication.
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="Item">
-                <img
-                  class="Image"
-                  style="width: 100%; height: 288px; border-radius: 12px"
-                  src="https://via.placeholder.com/448x288"
-                />
-                <div class="headingTitleCard">
-                  <div class="headingCard">Web Portfolio</div>
-                  <div class="description">
-                    A personal web portfolio showcasing my skills, projects, and
-                    achievements. This portfolio provides a glimpse into my
-                    technical expertise, creativity, and dedication.
+                <div class="item" style="--position: 4">
+                  <img class="Image" src="assets/photography.png" />
+                  <div class="headingTitleCard">
+                    <div class="headingCard">Photography Portfolio</div>
+                    <div class="description">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Mollitia quam totam sunt autem eius nesciunt molestiae
+                      blanditiis asperiores blanditiis asperiores
+                    </div>
+                  </div>
+                </div>
+                <div class="item" style="--position: 5">
+                  <img class="Image" src="assets/food.png" />
+                  <div class="headingTitleCard">
+                    <div class="headingCard">Food Ordering App</div>
+                    <div class="description">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Mollitia quam totam sunt autem eius nesciunt molestiae
+                      blanditiis asperiores blanditiis asperiores
+                    </div>
+                  </div>
+                </div>
+                <div class="item" style="--position: 6">
+                  <img class="Image" src="assets/ecommerce.png" />
+                  <div class="headingTitleCard">
+                    <div class="headingCard">E-Commerce App</div>
+                    <div class="description">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Mollitia quam totam sunt autem eius nesciunt molestiae
+                      blanditiis asperiores blanditiis asperiores
+                    </div>
+                  </div>
+                </div>
+                <div class="item" style="--position: 7">
+                  <img class="Image" src="assets/firebase.png" />
+                  <div class="headingTitleCard">
+                    <div class="headingCard">React Firebase Template</div>
+                    <div class="description">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Mollitia quam totam sunt autem eius nesciunt molestiae
+                      blanditiis asperiores blanditiis asperiores
+                    </div>
+                  </div>
+                </div>
+                <div class="item" style="--position: 8">
+                  <img class="Image" src="assets/fullstack.png" />
+                  <div class="headingTitleCard">
+                    <div class="headingCard">Full-stack Roadmap</div>
+                    <div class="description">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Mollitia quam totam sunt autem eius nesciunt molestiae
+                      blanditiis asperiores blanditiis asperiores
+                    </div>
                   </div>
                 </div>
               </div>
@@ -284,44 +321,51 @@
           </div>
         </div>
       </section>
+      <!-- Contact -->
       <section id="contact">
         <div class="container">
           <div class="sectionContact">
             <div class="contact">
-              <h4 class="headingContact">Let's Connect!</h4>
+              <div class="headingContact">Let's Connect!</div>
 
-              <p class="paragraphContact">
+              <div class="paragraphContact">
                 I am actively exploring new opportunities, and my inbox is
                 always open for meaningful conversations. Whether you have a
                 question, want to discuss potential collaborations, or just drop
                 a friendly 'hi,' I'll make it a priority to respond promptly.
                 <br />
                 Looking forward to connecting with you!
-              </p>
+              </div>
             </div>
-            <form class="formContact">
+            <form id="formContact" class="formContact">
               <label class="labelContact"> Name </label>
               <input
                 class="inputContact"
                 placeholder="Enter your name..."
                 type="text"
+                required
               />
 
               <label class="labelContact"> Your email </label>
               <input
+                id="email"
                 class="inputContact"
                 type="email"
                 placeholder="example.johnSmith@gmail.com"
+                required
               />
               <label class="labelContact"> Subject </label>
               <input
+                id="subject"
                 class="inputContact"
                 type="text"
                 placeholder="enter the subject..."
+                required
               />
 
               <label class="labelContact"> Message </label>
               <textarea
+                id="message"
                 class="textArea"
                 style="
                   width: 100%;
@@ -334,19 +378,23 @@
                 "
                 rows="8"
                 placeholder="enter your message..."
+                required
               ></textarea>
-              <button class="buttonContact" type="button">Send Message</button>
+              <button id="buttonContact" class="buttonContact" type="submit">
+                Send Message
+              </button>
             </form>
           </div>
         </div>
       </section>
     </main>
+    <!-- Footer -->
     <footer>
       <div class="footer">
         <img class="image" src="assets/logo.png" alt="Footer Image" />
-        <div class="licency">
+        <h6 class="licency">
           All rights reserved.<br />Web Profile Rifqi Fadluloh &copy; 2024
-        </div>
+        </h6>
         <div class="social-icons">
           <a href="https://github.com/RifqiF27" target="_blank" class="icon">
             <i class="fab fa-github"></i>

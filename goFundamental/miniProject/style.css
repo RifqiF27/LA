@@ -9,25 +9,26 @@ body {
 .nav {
   width: 100%;
   position: fixed;
+  z-index: 1;
   padding: 8px 16px;
   background: #121212;
   border-bottom: 1px #575a6d solid;
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Memastikan elemen vertikal rata tengah */
+  align-items: center; 
 }
 .list {
-  display: flex; /* Menggunakan flexbox untuk daftar */
-  gap: 32px; /* Jarak antar item */
+  display: flex; 
+  gap: 32px; 
   margin: 0 60px;
   list-style-type: none;
 }
 
 .text a {
-  color: #adb7be; /* Warna teks */
-  font-size: 20px; /* Ukuran font */
-  font-weight: 400; /* Ketebalan font */
-  line-height: 28px; /* Tinggi baris */
+  color: #adb7be; 
+  font-size: 20px; 
+  font-weight: 400; 
+  line-height: 28px; 
   text-decoration: none;
 }
 .text a:hover {
@@ -38,113 +39,113 @@ body {
 
 /* Section Home */
 .container {
-  max-width: 1200px; /* Mengatur lebar maksimum untuk responsivitas */
-  margin: auto; /* Mengatur margin otomatis untuk pusat */
-  padding: 20px; /* Padding di sekitar konten */
-  display: flex; /* Menggunakan flexbox untuk menempatkan konten */
-  flex-direction: row; /* Mengatur arah flex menjadi baris */
-  align-items: center; /* Rata tengah secara vertikal */
-  gap: 40px; /* Jarak antar elemen */
+  max-width: 1200px; 
+  margin: auto; 
+  padding: 20px; 
+  display: flex; 
+  flex-direction: row; 
+  align-items: center; 
+  gap: 40px; 
 }
 .sectionHome {
-  margin: 40px 0;
-  padding: 40px; /* Padding untuk isi section */
-  background: rgba(18, 18, 18, 0.8); /* Latar belakang semi-transparan */
+  margin: 40px 20px 0;
+  padding: 40px; 
+  background: rgba(18, 18, 18, 0.8); 
 }
-.Heading1 {
-  margin-bottom: 20px; /* Jarak bawah */
+.headingHome {
+  margin-bottom: 20px; 
 }
-.HelloIM {
-  color: #38bdf8; /* Warna teks */
-  font-size: 48px; /* Ukuran font */
-  font-weight: 800; /* Ketebalan font */
+.helloIm {
+  color: #38bdf8; 
+  font-size: 54px; 
+  font-weight: 800; 
+  margin: 0;
 }
-.WebDeveloper {
-  color: #ff6347; /* Warna teks */
-  font-size: 72px; /* Ukuran font */
-  font-weight: 800; /* Ketebalan font */
+.webDeveloper {
+  color: #ffd700; 
+  font-size: 72px; 
+  font-weight: 800; 
 }
-.Paragraph {
+.paragraphHome {
   margin-top: 20px;
-  margin-bottom: 40px; /* Jarak bawah */
-  color: rgba(137, 142, 145, 0.74); /* Warna teks */
-  font-size: 20px; /* Ukuran font */
+  margin-bottom: 40px; 
+  color: rgba(137, 142, 145, 0.74); 
+  font-size: 20px; 
   text-align: justify;
 }
 .button {
   display: inline-flex;
   align-items: center;
-  padding: 12px 24px; /* Padding untuk tombol */
+  padding: 12px 24px; 
   background: linear-gradient(
     171deg,
     #00335a 0%,
     #1b78fb 50%,
     #3cf2ff 100%
-  ); /* Gradient */
+  ); 
   border: none;
-  margin-right: 20px ;
-  border-radius: 12px; /* Sudut melengkung */
-  color: white; /* Warna teks */
-  font-size: 16px; /* Ukuran font */
-  cursor: pointer; /* Pointer saat hover */
-  transition: background 0.3s; /* Animasi transisi latar belakang */
+  margin-right: 20px;
+  border-radius: 12px; 
+  color: white; 
+  font-size: 16px; 
+  cursor: pointer; 
+  transition: background 0.3s; 
 }
 .button a {
-  color: white; /* Warna teks */
-  font-size: 16px; /* Ukuran font */
-  font-weight: 400; /* Ketebalan font */
+  color: white; 
+  font-size: 16px; 
+  font-weight: bold; 
   text-decoration: none;
-  
 }
 .button:hover {
-  background: #1b78fb; /* Ubah warna saat hover */
+  background: #1b78fb; 
 }
-.Image {
-  width: 300px; /* Ukuran gambar */
-  height: 300px; /* Ukuran gambar */
-  border-radius: 9999px; /* Sudut melengkung */
+.imageHome {
+  width: 300px; 
+  height: 300px; 
+  border-radius: 9999px; 
 }
-.Border {
+.borderHome {
   width: 600px;
   padding: 0 20px;
   height: 130px;
   border-radius: 6px;
   border: 1px #33353f solid;
   display: flex;
-  justify-content: center; /* Mengatur semua elemen secara horizontal */
-  align-items: center; /* Mengatur semua elemen secara vertikal */
-  margin: 20px auto; /* Mengatur margin otomatis untuk pusat */
+  justify-content: center; 
+  align-items: center; 
+  margin: 20px auto; 
 }
-.Heading2 {
-  margin: 0 40px; /* Jarak horizontal antar Heading2 */
-  text-align: center; /* Rata tengah untuk teks di Heading2 */
+.headingBorder {
+  margin: 0 40px; 
+  text-align: center; 
 }
-.Container .Heading2 .Container {
-  display: flex; /* Flexbox untuk isi Heading2 */
-  justify-content: center; /* Rata tengah untuk isi */
-  width: 74.34px; /* Lebar kontainer isi */
-  height: 40px; /* Tinggi kontainer isi */
+.headingBorderVal {
+  display: flex; 
+  justify-content: center; 
+  width: 74.34px; 
+  height: 40px; 
 }
 
-/* CSS untuk About section */
-.Heading2AboutMe {
+/* About section */
+.headingAbout {
   color: white;
   font-size: 36px;
 
   font-weight: 700;
   line-height: 40px;
 }
-.AboutParagraph {
+.paragraphAbout {
   color: white;
   font-size: 18px;
-
+  color: rgba(137, 142, 145, 0.74); 
   font-weight: 400;
   line-height: 28px;
   margin: 20px 0;
 }
 .skills {
   padding: 0;
-  color: white;
+  color: rgba(230, 236, 240, 0.74); 
   list-style-type: none;
   font-size: 16px;
   font-weight: 400;
@@ -156,7 +157,7 @@ body {
 }
 .content {
   padding: 0;
-  color: white;
+  color: rgba(230, 236, 240, 0.74);
   list-style-type: none;
   font-size: 16px;
   font-weight: 400;
@@ -164,7 +165,6 @@ body {
   margin-top: 10px;
 }
 
-/* Tambahan untuk About Section Baru */
 .sectionAbout {
   display: flex;
   width: 100%;
@@ -173,39 +173,39 @@ body {
   gap: 40px;
   padding: 40px;
 }
-.AboutImage {
+.imageAbout {
   width: 500px;
   height: 500px;
-  border-radius: 20px;
+  border-radius: 50px;
 }
-.AboutLinks {
+.aboutLinks {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
-.AboutLinkText {
+.aboutLinkText {
   text-align: center;
   color: #adb7be;
   font-size: 16px;
-
   font-weight: 600;
   line-height: 24px;
   cursor: pointer;
 }
-.AboutLinkText:hover {
+.aboutLinkText:hover {
   color: #ffffff;
 }
-.AboutLinkText.active {
-  color: #ffffff; /* Highlight color for active link */
-  font-weight: 700; /* Make it bold */
+.aboutLinkText.active {
+  color: #ffffff; 
+  font-weight: 700; 
 }
-.AboutSkillsList {
+.aboutSkillsList {
   margin-top: 10px;
 }
 
 /* Projects section */
 .containerProjects {
   margin: 40px;
+  width: 1120px;
 }
 .headingMyProjects {
   text-align: center;
@@ -216,21 +216,68 @@ body {
   margin-bottom: 40px;
 }
 .card {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px;
+  width: 100%;
+  height: var(--height);
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #fff 10% 90%, transparent);
 }
-.Item {
-  width: 30%;
+.listCard {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  width: 100%;
+  min-width: calc(var(--width) * var(--quantity));
+  position: relative;
 }
+.item {
+  width: var(--width);
+  height: var(--height);
+  position: absolute;
+  left: 100%;
+  animation: autoRun 10s linear infinite;
+  transition: filter 0.5s;
+  animation-delay: calc(
+    (10s / var(--quantity)) * (var(--position) - 1) - 10s
+  ) !important;
+}
+
+.item img {
+  width: 100%;
+  height: 63%;
+  object-fit: cover;
+  border-radius: 0px !important;
+  border-top-left-radius: 15px !important;;
+  border-top-right-radius: 15px !important;;
+}
+@keyframes autoRun{
+  from{
+      left: 100%;
+  }to{
+      left: calc(var(--width) * -1);
+  }
+}
+.card:hover .item{
+  animation-play-state: paused!important;
+  filter: grayscale(1);
+}
+.card .item:hover{
+  filter: grayscale(0);
+}
+/* .card[reverse="true"] .item{
+  animation: reversePlay 10s linear infinite;
+} */
+/* @keyframes reversePlay{
+  from{
+      left: calc(var(--width) * -1);
+  }to{
+      left: 100%;
+  }
+} */
+
 .headingTitleCard {
-  background: #181818;
+  background: #1f1f1f;
   padding: 20px;
-  border-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
   margin-top: -8px;
 }
 .headingCard {
@@ -264,7 +311,7 @@ body {
   color: white;
   font-size: 20px;
   font-weight: 700;
-  /* line-height: 28px; */
+  line-height: 28px;
 }
 
 .paragraphContact {
@@ -272,7 +319,6 @@ body {
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  /* word-wrap: break-word; */
   text-align: justify;
 }
 
@@ -364,5 +410,5 @@ body {
 }
 
 .social-icons .icon:hover {
-  color: #0a66c2; /* Warna saat hover */
+  color: #0a66c2; 
 }
