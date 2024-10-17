@@ -23,13 +23,13 @@ type Bajaj struct {
 }
 
 func (m Motorcycle) mileage(gas int) int {
-	return gas * 3
+	return gas * m.speed
 }
 func (c Car) mileage(gas int) int {
-	return gas * 1
+	return gas * c.speed
 }
 func (b Bajaj) mileage(gas int) int {
-	return gas * 4
+	return gas * b.speed
 }
 
 func mostEfficient(gas int, vehicles ...Vehicle) Vehicle {
