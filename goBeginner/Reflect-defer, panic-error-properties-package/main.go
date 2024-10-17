@@ -9,6 +9,10 @@ var accounts []model.Account
 
 func init() {
 	fmt.Println("Sistem keuangan dimulai...")
+	acc1 := model.NewAcc("Lumo", "lumo@mail.com")
+	acc2 := model.NewAcc("Aca", "aca@mail.com")
+	
+	accounts = model.AddAcc(accounts, acc1, acc2)
 }
 
 func main() {
@@ -18,21 +22,19 @@ func main() {
 		}
 	}()
 
-	acc1 := model.NewAcc("Lumo", "lumo@mail.com")
-	acc2 := model.NewAcc("Aca", "aca@mail.com")
+	acc3 := model.NewAcc("demy", "demy@mail.com")
+	// fmt.Println(acc3, reflect.TypeOf(acc3))
+	accounts = model.AddAcc(accounts,acc3)
+	// model.PrintAccounts(accounts)
+	
+	accounts[2].Saldo.Debit(1000, accounts)
+	accounts[2].Saldo.Credit(500, accounts)
+	
+	// fmt.Printf("%+v\n", accounts)
+	// accounts[1].Saldo.Debit(5000)
+	// accounts[1].Saldo.Credit(1500)
 
-	accounts = model.AddAcc(accounts, acc1, acc2)
+	// accounts[0].Saldo.PrintSaldo()
+	// accounts[1].Saldo.PrintSaldo()
 
-	model.PrintAccounts(accounts)
-
-	accounts[0].Saldo.Debit(1000)
-	accounts[0].Saldo.Credit(500)
-
-	accounts[1].Saldo.Debit(5000)
-	accounts[1].Saldo.Credit(1500)
-
-	accounts[0].Saldo.PrintSaldo()
-	accounts[1].Saldo.PrintSaldo()
-
-	fmt.Printf("%+v\n", accounts)
 }

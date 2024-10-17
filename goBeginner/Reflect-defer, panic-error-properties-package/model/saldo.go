@@ -1,6 +1,9 @@
 package model
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type Saldo struct {
 	Saldo int 
@@ -10,29 +13,43 @@ type Saldo struct {
 func NewSaldo() Saldo {
 	return Saldo{Saldo: 0} 
 }
+func HandleErrSaldo(val int) error{
+    if val <= 0 {
+        return errors.New("Jumlah yang ditambahkan harus lebih dari 0")
+    }
+    return nil
+}
 
-
-func (s *Saldo) Debit(saldo int) {
-	if saldo <= 0 {
-		panic("Error: Jumlah yang ditambahkan harus lebih dari 0.")
-	}
+func (s *Saldo) Debit(saldo int, accounts []Account) {
+	
+    errHandle := HandleErrSaldo(saldo)
+    if errHandle != nil {
+        fmt.Println(errHandle)
+        return
+    }
 	s.Saldo += saldo
-	fmt.Printf("Saldo berhasil ditambahkan, saldo sekarang: %d\n", s.Saldo)
+	fmt.Printf("Saldo berhasil ditambahkan %d ", s.Saldo)
+    PrintAccounts(accounts)
+
 }
 
 
-func (s *Saldo) Credit(saldo int) {
-	if saldo <= 0 {
-		panic("Error: Jumlah yang dikurangi harus lebih dari 0.")
-	}
+func (s *Saldo) Credit(saldo int, accounts []Account) {
+    errHandle := HandleErrSaldo(saldo)
+    if errHandle != nil {
+        fmt.Println(errHandle)
+        return
+    }
 	if s.Saldo < saldo {
-		panic("Error: Saldo tidak cukup untuk pengurangan ini.")
+		panic("Saldo tidak cukup.")
 	}
+    
 	s.Saldo -= saldo
-	fmt.Printf("Saldo berhasil dikurangi, saldo sekarang: %d\n", s.Saldo)
+	fmt.Printf("Saldo berhasil dikurangi %d ", s.Saldo)
+    PrintAccounts(accounts)
 }
 
 
-func (s Saldo) PrintSaldo() {
-	fmt.Printf("Saldo saat ini adalah: %d\n", s.Saldo)
-}
+// func (s Saldo) PrintSaldo() {
+// 	fmt.Printf("Saldo saat ini adalah: %d\n", s.Saldo)
+// }
