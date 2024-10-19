@@ -5,7 +5,7 @@ import (
 	"main/models"
 )
 
-func PurchaseMenuController(menu *models.Menu) {
+func PurchaseMenuController(menu models.Item) {
 	defer fmt.Println("Proses pembelian selesai.")
 	var itemNames []string
 	var itemName string
@@ -48,13 +48,13 @@ func PurchaseMenuController(menu *models.Menu) {
 		totalPriceDisc := totalPrice - discount
 		tax := totalPriceDisc * 0.11
 		total := totalPriceDisc + tax
-		fmt.Printf("Diskon 30%% diterapkan!\nTotal Harga: %.2f\nDiscount: %.2f\nPajak: %.2f\nTotal: %.2f\n", totalPrice,discount, tax, total)
+		fmt.Printf("Diskon 30%% diterapkan!\nTotal Harga: %.2f\nDiscount: %.2f\nPajak: %.2f\nTotal: %.2f\n", totalPrice, discount, tax, total)
 	} else if totalPrice >= 200000 && len(itemNames) > 2 {
 		discount := totalPrice * 0.10 // Diskon 10%
 		totalPriceDisc := totalPrice - discount
 		tax := totalPriceDisc * 0.11
 		total := totalPriceDisc + tax
-		fmt.Printf("Diskon 10%% diterapkan!\nTotal Harga: %.2f\nDiscount: %.2f\nPajak: %.2f\nTotal: %.2f\n", totalPrice,discount, tax, total)
+		fmt.Printf("Diskon 10%% diterapkan!\nTotal Harga: %.2f\nDiscount: %.2f\nPajak: %.2f\nTotal: %.2f\n", totalPrice, discount, tax, total)
 	} else {
 		fmt.Printf("Total harga: %.2f\n", totalPrice)
 	}
