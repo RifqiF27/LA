@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"main/controllers"
 	"main/models"
+	"main/utils"
 	"main/views"
-	// "reflect"
+	"reflect"
 )
 
 func main() {
@@ -33,23 +34,28 @@ func main() {
 	// }
 	// fmt.Println(items)
 	var menu models.Menu
-	var pilihan int
+	menu.Init()
+	var option int
 
+	
 	for {
-		fmt.Println("\nAplikasi Manajemen Makanan")
+		fmt.Println("\n**Aplikasi Manajemen Makanan**")
 		fmt.Println("1. Tambah Menu")
 		fmt.Println("2. Cari Menu")
 		fmt.Println("3. Hapus Menu")
 		fmt.Println("4. Update Menu")
-		fmt.Println("5. Tampilkan Menu")
-		fmt.Println("6. Keluar")
+		fmt.Println("5. Beli Makanan")
+		fmt.Println("6. Tampilkan Menu")
+		fmt.Println("7. Keluar")
 		fmt.Print("Pilih menu: ")
+		
+		fmt.Scanln(&option)
+		
+		
+		fmt.Printf("Tipe data option: %s\n\n", reflect.TypeOf(option))
+		utils.ClearScreen() 
 
-		fmt.Scanln(&pilihan)
-
-		// fmt.Println("Tipe data input:", reflect.TypeOf(pilihan))
-
-		switch pilihan {
+		switch option {
 		case 1:
 			controllers.AddMenuController(&menu)
 		case 2:
@@ -59,8 +65,11 @@ func main() {
 		case 4:
 			controllers.UpdateMenuController(&menu)
 		case 5:
-			views.ShowMenu(&menu)
+			controllers.PurchaseMenuController(&menu)
 		case 6:
+			views.ShowMenu(&menu)
+			fmt.Printf("\nTipe data: %s\n", reflect.TypeOf(menu.GetFoods()))
+		case 7:
 			fmt.Println("Keluar dari aplikasi.")
 			return
 		default:

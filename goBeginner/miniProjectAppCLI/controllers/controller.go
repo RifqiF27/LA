@@ -12,7 +12,7 @@ func AddMenuController(menu *models.Menu) {
 	var kinds string
 	var price float64
 	var qty int
-	var status bool
+	// var status bool
 	var err error
 
 	name, err = utils.InputStr("Masukan nama makanan!\n")
@@ -29,32 +29,33 @@ func AddMenuController(menu *models.Menu) {
 	}
 	// fmt.Scanln(&kinds)
 
-	price, err = utils.InputFloat("Masukkan price!\n")
+	price, err = utils.InputFloat("Masukkan harga!\n")
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
+	
 	qty, err = utils.InputInt("Masukkan qty\n")
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
-	status, err = utils.InputBool("Masukkan status\n")
-	if err != nil {
-		fmt.Println("Error:", err)
-		return
-	}
+	// status, err = utils.InputBool("Masukkan status\n")
+	// if err != nil {
+	// 	fmt.Println("Error:", err)
+	// 	return
+	// }
 
 	food := &models.Food{
 		Name:   name,
 		Kinds:  kinds,
 		Price:  price,
 		Qty:    qty,
-		Status: status,
+		Status: true,
 	}
 
 	menu.AddMenu(food)
-	fmt.Println("Menu berhasil diupdatekan")
+	fmt.Println("Menu berhasil ditambahkan")
 }
 
 func SearchMenuController(menu *models.Menu) {
@@ -67,8 +68,11 @@ func SearchMenuController(menu *models.Menu) {
 	f, err := menu.SearchMenu(name)
 	if err != nil {
 		fmt.Println("Error:", err)
+		return
 	}
-	fmt.Printf("%-10s%-20s%-20s%-10s%-10s\n", "Nama", "Jenis", "Harga", "Qty", "status")
+	fmt.Printf("\033[35m%-15s%-15s%-20s%-10s%-10s\033[0m\n", "Nama", "Jenis", "Harga", "Qty", "status")
+	
+	// fmt.Printf("%-10s%-20s%-20s%-10s%-10s\n", "Nama", "Jenis", "Harga", "Qty", "status")
 
 	var color string
 	var status string
@@ -79,8 +83,9 @@ func SearchMenuController(menu *models.Menu) {
 		status = "Unavailable"
 		color = "\033[31m" // Warna merah
 	}
+	fmt.Printf("%s%-15s%-15s%-20.2f%-10d%-10s\033[0m\n", color, f.Name, f.Kinds, f.Price, f.Qty, status)
 
-	fmt.Printf("%-10s%-20s%-20.2f%-10d%s%-10s\033[0m\n", f.Name, f.Kinds, f.Price, f.Qty, color, status)
+	// fmt.Printf("%-10s%-20s%-20.2f%-10d%s%-10s\033[0m\n", f.Name, f.Kinds, f.Price, f.Qty, color, status)
 }
 
 func DeleteMenuController(menu *models.Menu) {
@@ -106,14 +111,15 @@ func UpdateMenuController(menu *models.Menu) {
 	var status bool
 	var err error
 
-	fmt.Print("Masukan nama makanan yang ingin diupdate!\n")
+	fmt.Print("Masukan nama yang ingin diupdate: ")
 	fmt.Scanln(&name)
 
 	f, err := menu.SearchMenu(name)
 	if err != nil {
 		fmt.Println("Error:", err)
 	}
-	fmt.Printf("%-10s%-20s%-20s%-10s%-10s\n", "Nama", "Jenis", "Harga", "Qty", "status")
+	// fmt.Printf("%-10s%-20s%-20s%-10s%-10s\n", "Nama", "Jenis", "Harga", "Qty", "status")
+	fmt.Printf("\033[35m%-15s%-15s%-20s%-10s%-10s\033[0m\n", "Nama", "Jenis", "Harga", "Qty", "status")
 
 	var color string
 	var statusStr string
@@ -124,8 +130,9 @@ func UpdateMenuController(menu *models.Menu) {
 		statusStr = "Unavailable"
 		color = "\033[31m" // Warna merah
 	}
+	fmt.Printf("%s%-15s%-15s%-20.2f%-10d%-10s\033[0m\n", color, f.Name, f.Kinds, f.Price, f.Qty, statusStr)
 
-	fmt.Printf("%-10s%-20s%-20.2f%-10d%s%-10s\033[0m\n", f.Name, f.Kinds, f.Price, f.Qty, color, statusStr)
+	// fmt.Printf("%-10s%-20s%-20.2f%-10d%s%-10s\033[0m\n", f.Name, f.Kinds, f.Price, f.Qty, color, statusStr)
 
 	name, err = utils.InputStr("Masukan nama makanan yang ingin diupdate!\n")
 	if err != nil {
@@ -151,17 +158,19 @@ func UpdateMenuController(menu *models.Menu) {
 		fmt.Println("Error:", err)
 		return
 	}
-	status, err = utils.InputBool("Masukkan status yang ingin diupdate!\n")
-	if err != nil {
-		fmt.Println("Error:", err)
-		return
-	}
+	// status, err = utils.InputBool("Masukkan status yang ingin diupdate!\n")
+	// if err != nil {
+	// 	fmt.Println("Error:", err)
+	// 	return
+	// }
 
 	f.Name = name
 	f.Kinds = kinds
 	f.Price = price
 	f.Qty = qty
-	f.Status = status
+	if f.Qty <= 0 {
+		f.Status = false
+	}
 
 	err = menu.UpdateMenu(name, kinds, price, qty, status)
 	if err != nil {
@@ -169,6 +178,5 @@ func UpdateMenuController(menu *models.Menu) {
 	} else {
 		fmt.Println("Menu berhasil diupdate")
 	}
-	// fmt.Println("Menu berhasil diupdate")
 
 }

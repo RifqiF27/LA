@@ -3,6 +3,7 @@ package utils
 import (
 	"errors"
 	"fmt"
+	"regexp"
 	"strconv"
 )
 
@@ -11,7 +12,12 @@ func InputStr(prompt string) (string, error) {
 	fmt.Print(prompt)
 	_, err := fmt.Scanln(&input)
 	if err != nil {
-		return "", errors.New("input bukan string yang valid")
+		return "", errors.New("input tidak valid")
+	}
+	isString := regexp.MustCompile(`^[a-zA-Z]+$`).MatchString
+
+	if !isString(input) {
+		return "", errors.New("input harus berupa huruf")
 	}
 	return input, nil
 }
@@ -22,6 +28,8 @@ func InputInt(prompt string) (int, error) {
 	value, err := strconv.Atoi(input)
 	if err != nil {
 		return 0, errors.New("input bukan angka")
+	} else if value <= 0 {
+		return 0, errors.New("input harus lebih dari 0")
 	}
 	return value, nil
 }
@@ -33,27 +41,30 @@ func InputFloat(prompt string) (float64, error) {
 	value, err := strconv.ParseFloat(input, 64)
 	if err != nil {
 		return 0, errors.New("input bukan angka desimal")
+	} else if value <= 0 {
+		return 0, errors.New("input harus lebih dari 0")
 	}
 	return value, nil
 }
-func InputBool(prompt string) (bool, error) {
-	var input string
-	fmt.Print(prompt)
-	_, err := fmt.Scanln(&input)
-	if err != nil {
-		return false, errors.New("gagal membaca input")
-	}
 
-	value, err := strconv.ParseBool(input)
+// func InputBool(prompt string) (bool, error) {
+// 	var input string
+// 	fmt.Print(prompt)
+// 	_, err := fmt.Scanln(&input)
+// 	if err != nil {
+// 		return false, errors.New("gagal membaca input")
+// 	}
 
-	if err != nil {
-		if input == "available" {
-			return true, nil
-		} else if input == "unavailable" {
-			return false, nil
-		}
-		return false, errors.New("input harus 'true', 'false', 'available', atau 'unavailable'")
-	}
+// 	value, err := strconv.ParseBool(input)
 
-	return value, nil
-}
+// 	if err != nil {
+// 		if input == "available" {
+// 			return true, nil
+// 		} else if input == "unavailable" {
+// 			return false, nil
+// 		}
+// 		return false, errors.New("input harus 'true', 'false', 'available', atau 'unavailable'")
+// 	}
+
+// 	return value, nil
+// }
