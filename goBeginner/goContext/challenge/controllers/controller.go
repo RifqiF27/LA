@@ -15,9 +15,11 @@ import (
 func Login(ctx context.Context) {
 
 	fmt.Println("Please login:")
-
-	time.Sleep(1 * time.Second)
+	// fmt.Println(models.Items.Session, "<<<<<<")
+	
+	time.Sleep(500 * time.Millisecond)
 	models.Items.Session = true
+	// fmt.Println(models.Items.Session, ">>>>>>")
 
 	sessionCtx, cancel := context.WithTimeout(ctx, 20*time.Second)
 	defer cancel()
