@@ -79,7 +79,7 @@ func GetMenuData() string {
 			  ]
 			},
 			{
-			  "name": "DEssert",
+			  "name": "Dessert",
 			  "item": [
 				{
 				  "name": "Pudding",

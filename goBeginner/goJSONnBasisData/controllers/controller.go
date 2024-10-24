@@ -26,11 +26,11 @@ func ManageOrder() {
 		fmt.Println("5. Status Order")
 		fmt.Println("6. Exit")
 
-		// var option int
 		fmt.Print("Choose menu: ")
 		option, err := utils.InputInt()
 		if err != nil {
-
+			fmt.Println("Item invalid.")
+			continue
 		}
 		utils.ClearScreen()
 		switch option {
@@ -42,7 +42,8 @@ func ManageOrder() {
 			}
 			categoryIdx, err = utils.InputInt()
 			if err != nil {
-
+				fmt.Println("Error:", err)
+				return
 			}
 			if categoryIdx < 1 || categoryIdx > len(data.Menu.Category) {
 				fmt.Println("Category Invalid.")
@@ -54,7 +55,8 @@ func ManageOrder() {
 			}
 			itemIdx, err = utils.InputInt()
 			if err != nil {
-
+				fmt.Println("Error:", err)
+				return
 			}
 			if itemIdx < 1 || itemIdx > len(data.Menu.Category[categoryIdx-1].Item) {
 				fmt.Println("Item invalid.")
@@ -65,7 +67,6 @@ func ManageOrder() {
 			data.Payment.Amount += item.Price
 			fmt.Printf("Order %s successfully added.\n", item.Name)
 		case 2:
-			// Edit Order
 			if len(data.Order) == 0 {
 				fmt.Println("No orders yet.")
 				continue
@@ -77,7 +78,8 @@ func ManageOrder() {
 			var orderIdx int
 			orderIdx, err = utils.InputInt()
 			if err != nil {
-
+				fmt.Println("Error:", err)
+				return
 			}
 			if orderIdx < 1 || orderIdx > len(data.Order) {
 				fmt.Println("Order invalid.")
@@ -90,7 +92,8 @@ func ManageOrder() {
 			}
 			categoryIdx, err = utils.InputInt()
 			if err != nil {
-
+				fmt.Println("Error:", err)
+				return
 			}
 			if categoryIdx < 1 || categoryIdx > len(data.Menu.Category) {
 				fmt.Println("Category invalid.")
@@ -102,7 +105,8 @@ func ManageOrder() {
 			}
 			itemIdx, err = utils.InputInt()
 			if err != nil {
-
+				fmt.Println("Error:", err)
+				return
 			}
 			if itemIdx < 1 || itemIdx > len(data.Menu.Category[categoryIdx-1].Item) {
 				fmt.Println("Item invalid.")
@@ -127,7 +131,8 @@ func ManageOrder() {
 			var statusPayment int
 			statusPayment, err = utils.InputInt()
 			if err != nil {
-
+				fmt.Println("Error:", err)
+				return
 			}
 			if statusPayment == 1 {
 				data.Payment.Status = "Unpaid"
@@ -141,7 +146,8 @@ func ManageOrder() {
 			var statusOrder int
 			statusOrder, err = utils.InputInt()
 			if err != nil {
-
+				fmt.Println("Error:", err)
+				return
 			}
 			if statusOrder == 1 {
 				data.StatusOrder.Status = "Process"
