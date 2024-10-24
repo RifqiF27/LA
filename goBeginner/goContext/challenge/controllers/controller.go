@@ -12,24 +12,42 @@ import (
 	"time"
 )
 
-func Login(ctx context.Context) {
+func user(u models.User) bool {
+	for _, user := range models.Users {
+		if user.Username == u.Username && user.Password == u.Password {
+			return true
+		}
+	}
+	return false
+}
+func Login(ctx context.Context) bool{
 
 	fmt.Println("Please login:")
-	// fmt.Println(models.Items.Session, "<<<<<<")
-	
-	time.Sleep(500 * time.Millisecond)
-	models.Items.Session = true
-	// fmt.Println(models.Items.Session, ">>>>>>")
 
-	sessionCtx, cancel := context.WithTimeout(ctx, 20*time.Second)
-	defer cancel()
+	username := GetUserInput("username: ")
+	Password := GetUserInput("username: ")
 
-	fmt.Println("Login successful! You have 20 seconds to complete your actions.")
+	if user(models.User{Username: username, Password: Password}) {
 
-	<-sessionCtx.Done()
-	models.Items.Session = false
-	fmt.Println("Session expired. Please login again.")
-	os.Exit(0)
+		time.Sleep(500 * time.Millisecond)
+		models.Items.Session = true
+
+		sessionCtx, cancel := context.WithTimeout(ctx, 20*time.Second)
+		defer cancel()
+
+		fmt.Println("Login successful! You have 20 seconds to complete your actions.")
+		go func() {
+			<-sessionCtx.Done()
+			// models.Items.Session = false
+			fmt.Println("Session expired. Please login again.")
+			os.Exit(0)
+
+		}()
+		return true
+	} else{
+		fmt.Println("Invalid email or password")
+		return false
+	}
 
 }
 
@@ -40,7 +58,7 @@ func MainMenu() {
 	fmt.Println("3. Checkout")
 	fmt.Println("4. Exit")
 
-	choice := getUserInput("Choose an option: ")
+	choice := GetUserInput("Choose an option: ")
 	ClearScreen()
 	switch choice {
 	case "1":
@@ -62,11 +80,11 @@ func showProducts() {
 		fmt.Printf("%d. %s - IDR %.2f\n", product.ID, product.Name, product.Price)
 	}
 
-	productID := getUserInput("Enter the product ID to add to cart (or type 'back' to return): ")
+	productID := GetUserInput("Enter the product ID to add to cart (or type 'back' to return): ")
 	if strings.ToLower(productID) == "back" {
 		return
 	}
-	quantity := getUserInput("Enter the quantity: ")
+	quantity := GetUserInput("Enter the quantity: ")
 
 	for _, product := range models.Products {
 		if fmt.Sprintf("%d", product.ID) == productID {
@@ -103,7 +121,7 @@ func checkout() {
 	}
 
 	viewCart()
-	confirm := getUserInput("Proceed to checkout? (yes/no): ")
+	confirm := GetUserInput("Proceed to checkout? (yes/no): ")
 
 	if strings.ToLower(confirm) == "yes" {
 		models.Items.Cart = []models.CartItem{}
@@ -113,7 +131,7 @@ func checkout() {
 	}
 }
 
-func getUserInput(prompt string) string {
+func GetUserInput(prompt string) string {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print(prompt)
 	input, _ := reader.ReadString('\n')

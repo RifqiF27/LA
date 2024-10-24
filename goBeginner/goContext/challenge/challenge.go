@@ -2,19 +2,32 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"main/challenge/controllers"
 	"main/challenge/models"
-	"time"
+	// "time"
 )
 
 func main() {
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
+	for {
+		ctx, cancel := context.WithCancel(context.Background())
+		defer cancel()
 
-	go controllers.Login(ctx)
+		
+		// fmt.Println(models.Items.Session, ">>>>>>>>")
+		loginSuccess := controllers.Login(ctx)
+		
+		if loginSuccess {
+			
+			for models.Items.Session {
+				controllers.MainMenu()
+				// time.Sleep(500 * time.Millisecond)
+			}
 
-	time.Sleep(1 * time.Second)
-	for models.Items.Session {
-		controllers.MainMenu()
+			fmt.Println("Session expired. Returning to login page...")
+		} else {
+
+			fmt.Println("Login failed. Please try again.")
+		}
 	}
 }

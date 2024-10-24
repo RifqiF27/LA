@@ -1,5 +1,9 @@
 package models
 
+type User struct{
+	Username string
+	Password string
+}
 type Product struct {
 	ID    int
 	Name  string
@@ -14,6 +18,10 @@ type CartItem struct {
 type Item struct {
 	Cart    []CartItem
 	Session bool
+}
+
+var Users = []User{
+	{Username: "user1", Password: "user1"},
 }
 
 var Products = []Product{
