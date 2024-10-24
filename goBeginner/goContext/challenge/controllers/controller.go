@@ -20,31 +20,32 @@ func user(u models.User) bool {
 	}
 	return false
 }
-func Login(ctx context.Context) bool{
+func Login(ctx context.Context) bool {
 
 	fmt.Println("Please login:")
 
 	username := GetUserInput("username: ")
-	Password := GetUserInput("username: ")
-
+	Password := GetUserInput("password: ")
+	// fmt.Println(user(models.User{Username: username, Password: Password}), "<<<<<<")
 	if user(models.User{Username: username, Password: Password}) {
 
 		time.Sleep(500 * time.Millisecond)
 		models.Items.Session = true
 
 		sessionCtx, cancel := context.WithTimeout(ctx, 20*time.Second)
-		defer cancel()
-
 		fmt.Println("Login successful! You have 20 seconds to complete your actions.")
+
 		go func() {
 			<-sessionCtx.Done()
-			// models.Items.Session = false
+			models.Items.Session = false
 			fmt.Println("Session expired. Please login again.")
 			os.Exit(0)
-
+			cancel()
 		}()
+
 		return true
-	} else{
+
+	} else {
 		fmt.Println("Invalid email or password")
 		return false
 	}
@@ -57,7 +58,6 @@ func MainMenu() {
 	fmt.Println("2. View Cart")
 	fmt.Println("3. Checkout")
 	fmt.Println("4. Exit")
-
 	choice := GetUserInput("Choose an option: ")
 	ClearScreen()
 	switch choice {

@@ -2,10 +2,8 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"main/challenge/controllers"
 	"main/challenge/models"
-	// "time"
 )
 
 func main() {
@@ -13,21 +11,16 @@ func main() {
 		ctx, cancel := context.WithCancel(context.Background())
 		defer cancel()
 
-		
-		// fmt.Println(models.Items.Session, ">>>>>>>>")
-		loginSuccess := controllers.Login(ctx)
-		
-		if loginSuccess {
-			
-			for models.Items.Session {
+		if models.Items.Session {
+			select {
+			case <-ctx.Done():
+				break
+			default:
 				controllers.MainMenu()
-				// time.Sleep(500 * time.Millisecond)
 			}
-
-			fmt.Println("Session expired. Returning to login page...")
 		} else {
-
-			fmt.Println("Login failed. Please try again.")
+			controllers.Login(ctx)
 		}
+		
 	}
 }
