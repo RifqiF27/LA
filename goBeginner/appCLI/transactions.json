@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "from_user_id": "TOP-UP",
+    "to_user_id": "test",
+    "amount": 100000,
+    "type": "topup",
+    "description": "test"
+  },
+  {
+    "id": 2,
+    "from_user_id": "TOP-UP",
+    "to_user_id": "test1",
+    "amount": 1000000,
+    "type": "topup",
+    "description": "test1"
+  },
+  {
+    "id": 3,
+    "from_user_id": "test1",
+    "to_user_id": "test",
+    "amount": 10000,
+    "type": "transfer",
+    "description": "test1 Transfer saldo test"
+  },
+  {
+    "id": 4,
+    "from_user_id": "TOP-UP",
+    "to_user_id": "test1",
+    "amount": 100000,
+    "type": "topup",
+    "description": "tambah"
+  },
+  {
+    "id": 5,
+    "from_user_id": "TOP-UP",
+    "to_user_id": "test1",
+    "amount": 10000,
+    "type": "topup",
+    "description": "tambah"
+  },
+  {
+    "id": 6,
+    "from_user_id": "test1",
+    "to_user_id": "test",
+    "amount": 50000,
+    "type": "transfer",
+    "description": "test1 Transfer saldo test"
+  },
+  {
+    "id": 7,
+    "from_user_id": "test1",
+    "to_user_id": "test",
+    "amount": 1000000,
+    "type": "transfer",
+    "description": "Transfer balance"
+  },
+  {
+    "id": 8,
+    "from_user_id": "test1",
+    "to_user_id": "test",
+    "amount": 6000,
+    "type": "transfer",
+    "description": "Transfer balance"
+  },
+  {
+    "id": 9,
+    "from_user_id": "TOP-UP",
+    "to_user_id": "users",
+    "amount": 6000,
+    "type": "topup",
+    "description": "top"
+  },
+  {
+    "id": 10,
+    "from_user_id": "TOP-UP",
+    "to_user_id": "users",
+    "amount": 50000,
+    "type": "topup",
+    "description": "testt"
+  },
+  {
+    "id": 11,
+    "from_user_id": "users",
+    "to_user_id": "test",
+    "amount": 50000,
+    "type": "transfer",
+    "description": "Transfer balance"
+  },
+  {
+    "id": 12,
+    "from_user_id": "TOP-UP",
+    "to_user_id": "adf",
+    "amount": 50000,
+    "type": "topup",
+    "description": "test"
+  },
+  {
+    "id": 13,
+    "from_user_id": "adf",
+    "to_user_id": "users",
+    "amount": 40000,
+    "type": "transfer",
+    "description": "Transfer balance"
+  },
+  {
+    "id": 14,
+    "from_user_id": "users",
+    "to_user_id": "adf",
+    "amount": 6000,
+    "type": "transfer",
+    "description": "Transfer balance"
+  },
+  {
+    "id": 15,
+    "from_user_id": "users",
+    "to_user_id": "adf",
+    "amount": 6000,
+    "type": "transfer",
+    "description": "Transfer balance"
+  }
+]
