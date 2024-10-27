@@ -7,10 +7,10 @@ import (
 
 var (
 	ErrInvalidInput        = errors.New("input invalid")
-	ErrInputLenGreaterThan = errors.New("input must be greater than 3")
+	ErrInputLenGreaterThan = errors.New("input must be greater than or equal 3")
 	ErrInputMustBeLetters  = errors.New("input must be Letters")
 	ErrInputMustBeNumber   = errors.New("input must be Number")
-	ErrInputGreaterThan    = errors.New("input must be greater than 5000")
+	ErrInputGreaterThan    = errors.New("input must be greater than or equal to 5000")
 	ErrEditAccount         = errors.New("edit account failed")
 	ErrUsernameExists      = errors.New("username already exist")
 	ErrInvalidLogin        = errors.New("username or password invalid")
@@ -28,7 +28,7 @@ func ErrHandler(err error) {
 			fmt.Println(Red + "Error: Input invalid." + Reset)
 
 		case errors.Is(err, ErrInputLenGreaterThan):
-			fmt.Println(Red + "Error: Input must be greater than 3." + Reset)
+			fmt.Println(Red + "Error: Input must be greater than or equal 3." + Reset)
 
 		case errors.Is(err, ErrInputMustBeNumber):
 			fmt.Println(Red + "Error: Input must be number." + Reset)
@@ -37,7 +37,7 @@ func ErrHandler(err error) {
 			fmt.Println(Red + "Error: Input must be letters." + Reset)
 
 		case errors.Is(err, ErrInputGreaterThan):
-			fmt.Println(Red + "Error: Input must be greater than 5000." + Reset)
+			fmt.Println(Red + "Error: Input must be greater than or equal to 5000." + Reset)
 
 		case errors.Is(err, ErrEditAccount):
 			fmt.Println(Red + "Error: Edit account failed." + Reset)

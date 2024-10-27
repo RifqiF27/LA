@@ -31,9 +31,7 @@ func InputInt(prompt string) (int, error) {
 	value, err := strconv.Atoi(input)
 	if err != nil {
 		return 0, ErrInvalidInput
-	} else if value <= 0 {
-		return 0, ErrInputGreaterThan
-	}
+	} 
 	return value, nil
 }
 
@@ -44,7 +42,7 @@ func InputFloat(prompt string) (float64, error) {
 	value, err := strconv.ParseFloat(input, 64)
 	if err != nil {
 		return 0, ErrInvalidInput
-	} else if value <= 5000 {
+	} else if value < 5000 {
 		return 0, ErrInputGreaterThan
 	}
 	return value, nil

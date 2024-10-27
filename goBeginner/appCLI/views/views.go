@@ -11,11 +11,11 @@ func MainMenu() {
     userService := models.NewUser("users.json", "session.json")
     accountService := models.NewAccountService("accounts.json", "transactions.json")
 
-    if !userService.IsLoggedIn() {
-        services.Login(userService, accountService)
-    }
-
+    
     for {
+        if !userService.IsLoggedIn() {
+            services.Login(userService, accountService)
+        }
         fmt.Println(utils.Bold+"\n==== E-Wallet ===="+utils.Reset)
         fmt.Println("1. Check Balance")
         fmt.Println("2. Top-Up")

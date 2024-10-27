@@ -27,7 +27,7 @@ func Login(userService *models.UserServices, accountService *models.AccountServi
 		err = userService.Login(username, password)
 		if err != nil {
 			utils.ErrHandler(utils.ErrInvalidLogin)
-			choice, err := utils.InputStr("Create your e-wallet account (yes/any): ")
+			choice, err := utils.InputStr("Create your e-wallet account (yes/no(any)): ")
 			if err == nil && strings.ToLower(choice) == "yes" {
 				register(userService)
 			} else {

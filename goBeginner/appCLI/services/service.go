@@ -22,7 +22,7 @@ func TopUp(accountService *models.AccountService, userService *models.UserServic
 	}
 	user := userService.GetLoggedInUser()
 	accountService.TopUp(user.Username, amount, description)
-	fmt.Println(utils.Green + "Top-Up berhasil!" + utils.Reset)
+	fmt.Println(utils.Green + "Top-Up Success!" + utils.Reset)
 }
 
 func Transfer(accountService *models.AccountService, userService *models.UserServices) {
@@ -42,7 +42,7 @@ func Transfer(accountService *models.AccountService, userService *models.UserSer
 	if e != nil {
 		utils.ErrHandler(e)
 	} else {
-		fmt.Println(utils.Green + "Transfer berhasil!" + utils.Reset)
+		fmt.Println(utils.Green + "Transfer Success!" + utils.Reset)
 	}
 }
 
@@ -90,7 +90,7 @@ func EditAccount(userService *models.UserServices) {
 func CheckBalance(accountService *models.AccountService, userService *models.UserServices) {
 	user := userService.GetLoggedInUser()
 	balance, _ := accountService.GetBalance(user.Username)
-	fmt.Printf("Nama: %s\nSaldo Anda: \033[32m\033[1m%.2f\033[0m\n", utils.Bold+user.Name+utils.Reset, balance)
+	fmt.Printf("Nama: %s\nYour Balance: \033[32m\033[1m%.2f\033[0m\n", utils.Bold+user.Name+utils.Reset, balance)
 }
 
 func HistoryTransaction(accountService *models.AccountService, userService *models.UserServices) {
