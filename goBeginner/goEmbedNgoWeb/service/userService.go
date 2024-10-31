@@ -28,8 +28,8 @@ func (us *UserService) RegisterService(username, password, role, name string) er
 	}
 
 	if role == "admin" && name == "" {
-        return errors.New("nama admin tidak boleh kosong")
-    }
+		return errors.New("nama admin tidak boleh kosong")
+	}
 
 	// tx, err := db.Begin()
 	// if err != nil {
@@ -58,8 +58,8 @@ func (us *UserService) RegisterService(username, password, role, name string) er
 	}
 	if role == "admin" {
 		admin := model.Admin{
-			Name:    name,
-			UserID:  int(user.ID),
+			Name:   name,
+			UserID: int(user.ID),
 		}
 
 		err = us.RepoUser.CreateAdmin(&admin)

@@ -57,6 +57,7 @@ func Login(db *sql.DB) {
 			"ID":       admin.ID,
 			"Username": admin.Username,
 			"Role":     admin.Role,
+			
 		}
 	
 		sessionJSON, err := json.MarshalIndent(sessionData, "", "  ")

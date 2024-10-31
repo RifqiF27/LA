@@ -6,6 +6,7 @@ import (
 	"main/reposiitory"
 	"main/service"
 	"main/utils"
+	"strings"
 )
 
 func Register(db *sql.DB) {
@@ -19,9 +20,10 @@ func Register(db *sql.DB) {
 
 	fmt.Print("Masukkan role: ")
 	fmt.Scan(&role)
-
-	fmt.Print("Masukkan name: ")
-	fmt.Scan(&name)
+	if strings.ToLower(role) == "admin" {
+		fmt.Print("Masukkan name: ")
+		fmt.Scan(&name)	
+	}
 
 	repo := repository.NewUserRepo(db)
 	userService := service.NewUserService(repo)

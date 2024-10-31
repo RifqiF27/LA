@@ -27,6 +27,14 @@ func main() {
 			handler.Login(db)
 		case "register":
 			handler.Register(db)
+		case "get-student":
+			handler.GetAllStudents(db)
+		case "add-student":
+			handler.AddStudent(db)
+		case "update-student":
+			handler.UpdateStudent(db)
+		case "delete-student":
+			handler.DeleteStudent(db)
 		case "logout":
 			handler.Logout()
 		default:

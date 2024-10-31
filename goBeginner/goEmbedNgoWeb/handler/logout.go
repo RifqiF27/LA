@@ -2,6 +2,7 @@ package handler
 
 import (
 	"fmt"
+	"main/utils"
 	"os"
 )
 
@@ -21,4 +22,5 @@ func Logout() {
 	}
 
 	fmt.Println("Logout berhasil, sesi telah dihapus.")
+	utils.SendJSONResponse(200, "logout success", nil)
 }

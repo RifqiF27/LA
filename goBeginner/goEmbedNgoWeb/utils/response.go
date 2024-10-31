@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"main/model"
+	"os"
 )
 
 func SendJSONResponse(statusCode int, message string, data interface{}) {
@@ -16,6 +17,12 @@ func SendJSONResponse(statusCode int, message string, data interface{}) {
 	jsonData, err := json.MarshalIndent(response, "", "  ")
 	if err != nil {
 		fmt.Println("Error marshaling JSON:", err)
+		return
+	}
+
+	err = os.WriteFile("body.json", jsonData, 0644)
+	if err != nil {
+		fmt.Println("Gagal menyimpan body:", err)
 		return
 	}
 
