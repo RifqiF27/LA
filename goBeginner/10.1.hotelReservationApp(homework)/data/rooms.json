@@ -1,0 +1,32 @@
+[
+    {
+        "id": 101,
+        "name": "Deluxe Room",
+        "price": 600000,
+        "is_available": true
+    },
+    {
+        "id": 102,
+        "name": "Standard Room",
+        "price": 400000,
+        "is_available": true
+    },
+    {
+        "id": 103,
+        "name": "Suite Room",
+        "price": 900000,
+        "is_available": false
+    },
+    {
+        "id": 104,
+        "name": "Family Room",
+        "price": 800000,
+        "is_available": true
+    },
+    {
+        "id": 105,
+        "name": "Economy Room",
+        "price": 350000,
+        "is_available": true
+    }
+]

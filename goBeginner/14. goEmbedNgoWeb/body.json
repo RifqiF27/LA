@@ -1,0 +1,11 @@
+{
+  "StatusCode": 201,
+  "Message": "Siswa berhasil ditambahkan",
+  "Data": {
+    "ID": 0,
+    "UserID": 0,
+    "Name": "",
+    "PhoneNumber": "",
+    "Address": ""
+  }
+}

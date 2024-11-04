@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "customer_name": "John Doe",
+    "customer_phone": "081234567890",
+    "room_id": 101,
+    "reservation_date": "2024-10-01",
+    "total_payment": 500000,
+    "payment_status": "Paid",
+    "reservation_status": "Confirmed",
+    "created_at": "2024-10-01 10:00:00"
+  },
+  {
+    "id": 2,
+    "customer_name": "Jane Smith",
+    "customer_phone": "081298765432",
+    "room_id": 102,
+    "reservation_date": "2024-10-05",
+    "total_payment": 600000,
+    "payment_status": "Refunded",
+    "reservation_status": "Canceled",
+    "created_at": "2024-10-01 12:00:00"
+  },
+  {
+    "id": 3,
+    "customer_name": "Alice Johnson",
+    "customer_phone": "082345678901",
+    "room_id": 103,
+    "reservation_date": "2024-10-10",
+    "total_payment": 450000,
+    "payment_status": "Paid",
+    "reservation_status": "Confirmed",
+    "created_at": "2024-10-02 09:30:00"
+  },
+  {
+    "id": 4,
+    "customer_name": "Bob Brown",
+    "customer_phone": "083456789012",
+    "room_id": 104,
+    "reservation_date": "2024-10-15",
+    "total_payment": 550000,
+    "payment_status": "Paid",
+    "reservation_status": "Confirmed",
+    "created_at": "2024-10-03 15:15:00"
+  },
+  {
+    "id": 5,
+    "customer_name": "Charlie Black",
+    "customer_phone": "084567890123",
+    "room_id": 105,
+    "reservation_date": "2024-10-20",
+    "total_payment": 700000,
+    "payment_status": "Refunded",
+    "reservation_status": "Canceled",
+    "created_at": "2024-10-04 14:45:00"
+  },
+  {
+    "id": 6,
+    "customer_name": "customer",
+    "customer_phone": "",
+    "room_id": 105,
+    "reservation_date": "",
+    "total_payment": 40000,
+    "payment_status": "Paid",
+    "reservation_status": "Confirmed",
+    "created_at": "2024-10-27T15:57:16+07:00"
+  }
+]
