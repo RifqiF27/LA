@@ -15,6 +15,15 @@ import (
 
 func Login(db *sql.DB, tmpl *template.Template) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodGet {
+
+			err := tmpl.ExecuteTemplate(w, "layout.html", nil)
+			if err != nil {
+				fmt.Println(err, ">>>>>")
+				http.Error(w, "Error rendering template", http.StatusInternalServerError)
+			}
+			return
+		}
 
 		if _, err := os.Stat("session.json"); err == nil {
 			utils.SendJSONResponse(w, http.StatusForbidden, "User already logged in", nil)
@@ -52,7 +61,7 @@ func Login(db *sql.DB, tmpl *template.Template) http.HandlerFunc {
 			return
 		}
 		if tmpl != nil {
-            tmpl.Execute(w, sessionData)
-        }
+			tmpl.Execute(w, sessionData)
+		}
 	}
 }

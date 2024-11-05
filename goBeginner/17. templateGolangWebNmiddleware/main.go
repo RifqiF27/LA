@@ -21,17 +21,16 @@ func main() {
 	defer db.Close()
 
 	tmpl := template.Must(template.ParseFiles(
-		// "templates/layout.html",
-		// "templates/login.html",
-		// "templates/register.html",
-		// "templates/add_todo.html",
-		// "templates/view_todos.html",
 		"templates/layout.html",
+		"templates/header.html",
+		"templates/navigator.html",
+		"templates/content.html",
+		"templates/footer.html",
 
 	))
 
-	fs := http.FileServer(http.Dir("template"))
-	http.Handle("/template/", http.StripPrefix("/template/", fs))
+	fs := http.FileServer(http.Dir("static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	serverMux := http.NewServeMux()
 
