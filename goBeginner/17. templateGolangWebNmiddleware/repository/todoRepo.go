@@ -64,6 +64,7 @@ func (r *TodoRepoDb) GetTodosWithPagination(limit, offset int, searchThread stri
 		var todo model.Todo
 		err := rows.Scan(&todo.ID,&todo.UserID, &todo.Thread, &todo.Status)
 		if err != nil {
+			fmt.Println(err, "<<<<<<<")
 			return nil, 0, err
 		}
 		todos = append(todos, todo)

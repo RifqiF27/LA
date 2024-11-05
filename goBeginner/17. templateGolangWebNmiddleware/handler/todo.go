@@ -7,13 +7,14 @@ import (
 	"math"
 	"net/http"
 	"strconv"
+	"html/template"
 	"todo/model"
 	"todo/repository"
 	"todo/service"
 	"todo/utils"
 )
 
-func GetTodos(db *sql.DB) http.HandlerFunc {
+func GetTodos(db *sql.DB, tmpl *template.Template) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 
 		var pagination model.PaginationRequest
@@ -39,15 +40,17 @@ func GetTodos(db *sql.DB) http.HandlerFunc {
 			}
 		}
 
-		err = json.NewDecoder(r.Body).Decode(&pagination)
-		if err != nil {
-			utils.SendJSONResponse(w, http.StatusBadRequest, err.Error(), nil)
-			return
-		}
+		// err = json.NewDecoder(r.Body).Decode(&pagination)
+		// if err != nil {
+		// 	fmt.Println(err,"ini get body handler")
+		// 	utils.SendJSONResponse(w, http.StatusBadRequest, err.Error(), nil)
+		// 	return
+		// }
 
 		todoService := service.NewTodoService(repository.NewTodoRepo(db))
 		todos, totalTodos, err := todoService.GetTodosService(limitInt, pageInt, search)
 		if err != nil {
+			fmt.Println(err, "ini get handler todo")
 
 			utils.SendJSONResponse(w, http.StatusBadRequest, err.Error(), nil)
 			return
@@ -66,10 +69,14 @@ func GetTodos(db *sql.DB) http.HandlerFunc {
 
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(response)
+
+		if tmpl != nil {
+            tmpl.Execute(w, response)
+        }
 	}
 }
 
-func AddTodo(db *sql.DB) http.HandlerFunc {
+func AddTodo(db *sql.DB, tmpl *template.Template) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 
 		fmt.Println("AddTodo Handler Invoked")
@@ -94,10 +101,14 @@ func AddTodo(db *sql.DB) http.HandlerFunc {
 		}
 
 		utils.SendJSONResponse(w, http.StatusCreated, "Todo added successfully", todo)
+
+		if tmpl != nil {
+            tmpl.Execute(w, todo)
+        }
 	}
 }
 
-func UpdateTodoStatus(db *sql.DB) http.HandlerFunc {
+func UpdateTodoStatus(db *sql.DB, tmpl *template.Template) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 
 		todo := model.Todo{}
@@ -124,5 +135,9 @@ func UpdateTodoStatus(db *sql.DB) http.HandlerFunc {
 		}
 
 		utils.SendJSONResponse(w, http.StatusOK, "Stock updated successfully", todo)
+
+		if tmpl != nil {
+            tmpl.Execute(w, todo)
+        }
 	}
 }

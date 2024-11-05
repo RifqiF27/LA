@@ -40,3 +40,10 @@ func main() {
 	log.Fatal(http.ListenAndServe(":8080", serverMux))
 
 }
+
+// curl -X POST http://localhost:8080/login -H "Content-Type: application/json" -d '{"username": "admin", "password": "hashedpassword1"}'
+// curl -X POST http://localhost:8080/register -H "Content-Type: application/json" -d '{"username": "new_user", "password": "new_password", "role":"staff"}'
+// curl -X PUT http://localhost:8080/customer/update-todo -H "Content-Type: application/json" -H "token: admin_token" -d '{"id": 1, "status": "completed"}'
+// curl -X POST http://localhost:8080/customer/add-todo -H "Content-Type: application/json" -H "token: admin_token" -d '{"thread": "New Todo Thread", "status": "Processingg"}'
+// curl -X GET "http://localhost:8080/customer/get-todo?page=1&limit=5&search=" -H "token: 12345" -H "role: admin_token"-d {}
+
