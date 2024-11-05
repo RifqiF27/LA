@@ -16,7 +16,19 @@ import (
 
 func GetTodos(db *sql.DB, tmpl *template.Template) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		if r.Method == http.MethodGet {
+			fmt.Println("Rendering todo")
 
+			err := tmpl.ExecuteTemplate(w, "layout.html",  map[string]bool{"IsTodo": true})
+			if err != nil {
+				fmt.Println(err, ">>>>>")
+				http.Error(w, "Error rendering template", http.StatusInternalServerError)
+			}
+			// w.Header().Get("token")
+			// http.Redirect(w, r, "/register", http.StatusSeeOther)
+			return
+
+		}
 		var pagination model.PaginationRequest
 		page := r.URL.Query().Get("page")
 		limit := r.URL.Query().Get("limit")
@@ -70,9 +82,6 @@ func GetTodos(db *sql.DB, tmpl *template.Template) http.HandlerFunc {
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(response)
 
-		if tmpl != nil {
-            tmpl.Execute(w, response)
-        }
 	}
 }
 

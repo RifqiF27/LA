@@ -20,26 +20,32 @@ func main() {
 	}
 	defer db.Close()
 
-	tmpl := template.Must(template.ParseFiles(
-		"templates/layout.html",
-		"templates/header.html",
-		"templates/navigator.html",
-		"templates/content.html",
-		"templates/footer.html",
+	// tmpl := template.Must(template.ParseGlob("templates/*.html"))
 
-	))
+	tmpl, err := template.ParseGlob("tmpl/templates/*.html")
+	if err != nil {
+		log.Fatalf("Failed to parse templates: %v", err)
+	}
+	// tmpl := template.Must(template.ParseFiles(
+	// 	"templates/layout.html",
+	// 	"templates/header.html",
+	// 	"templates/login.html",
+	// 	"templates/navigator.html",
+	// 	"templates/content.html",
+	// 	"templates/footer.html",
+	// ))
 
-	fs := http.FileServer(http.Dir("static"))
+	fs := http.FileServer(http.Dir("tmpl/static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	serverMux := http.NewServeMux()
 
 	authMux := http.NewServeMux()
-	authMux.HandleFunc("/login", handler.Login(db,tmpl))
+	authMux.HandleFunc("/login", handler.Login(db, tmpl))
 	authMux.HandleFunc("/register", handler.Register(db, tmpl))
 
 	resourceMux := http.NewServeMux()
-	resourceMux.HandleFunc("/add-todo", handler.AddTodo(db,tmpl))
+	resourceMux.HandleFunc("/add-todo", handler.AddTodo(db, tmpl))
 	resourceMux.HandleFunc("/update-todo", handler.UpdateTodoStatus(db, tmpl))
 	resourceMux.HandleFunc("/get-todo", handler.GetTodos(db, tmpl))
 
@@ -48,7 +54,6 @@ func main() {
 
 	serverMux.Handle("/", authMux)
 	serverMux.Handle("/todo/", http.StripPrefix("/todo", middleware))
-
 
 	log.Println("Starting server on :8080")
 	log.Fatal(http.ListenAndServe(":8080", serverMux))
