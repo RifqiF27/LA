@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{template "header" .}}
+</head>
+<body>
+    {{if .IsLogin}}
+        {{template "login" .}}
+    {{else if .IsRegister}}
+        {{template "register" .}}
+    {{end}}
+
+</body>
+</html>

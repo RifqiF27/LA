@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{template "header" .}}
+</head>
+<body>
+    {{template "navigator" .}}
+    {{if .IsLogin}}
+    {{template "login" .}}
+    {{else if .IsRegister}}
+    {{template "register" .}}
+    
+    {{else if .IsUser}}
+    {{template "user" .}}    
+    {{else if .IsTodo}}
+    {{template "todo" .}}
+    {{end}}
+
+    {{template  "footer" .}}
+
+</body>
+</html>

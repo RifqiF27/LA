@@ -1,0 +1,21 @@
+
+{{define "register"}}
+
+<section id="registration-section">
+    <h2>Form Register</h2>
+    <form action="/register" method="post">
+        
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+        
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        
+        <label for="role">Role</label>
+        <input type="text" id="role" name="role" required>
+        
+        <button type="submit">Register</button>
+    </form>
+</section>
+
+{{end}}
