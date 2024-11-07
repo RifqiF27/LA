@@ -8,7 +8,7 @@ import (
 )
 
 func NewPostgresDB() *sql.DB {
-	connStr := "user=postgres dbname=postgres sslmode=disable password=postgres host=localhost"
+	connStr := "user=postgres dbname=Book sslmode=disable password=postgres host=localhost"
 	db, err := sql.Open("postgres", connStr)
 	if err != nil {
 		log.Fatalf("Error opening database: %v", err)

@@ -1,27 +1,52 @@
 package router
 
-// import (
-// 	"book-store/database"
+import (
+	"book-store/database"
+	"book-store/handler"
+	"book-store/middleware"
+	"book-store/repository"
+	"book-store/service"
+	"net/http"
 
-// 	"github.com/go-chi/chi/v5"
-// )
+	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
+	"github.com/gorilla/handlers"
+)
 
-// func NewRouter() *chi.Mux {
-// 	r := chi.NewRouter()
-// 	db := database.NewPostgresDB()
+func NewRouter() http.Handler {
+	r := chi.NewRouter()
+	db := database.NewPostgresDB()
 
-// 	repo := repository.NewProductRepository(db)
-// 	srv := service.NewProductService(repo)
-// 	h := handler.NewProductHandler(srv)
+	repo := repository.NewUserRepo(db)
+	srv := service.NewUserService(repo)
+	h := handler.NewAuthHandler(srv)
 
-// 	r.Use(middleware.Logger)
-// 	r.Use(middleware.BasicAuth)
+	
 
-// 	r.Get("/products", h.GetAllProducts)
-// 	r.Get("/products/{id}", h.GetProductByID)
-// 	r.Post("/products", h.CreateProduct)
-// 	r.Put("/products/{id}", h.UpdateProduct)
-// 	r.Delete("/products/{id}", h.DeleteProduct)
+	r.Use(middleware.Logger)
 
-// 	return r
-// }
+	fileServer := http.FileServer(http.Dir("./static"))
+	r.Handle("/static/*", http.StripPrefix("/static", fileServer))
+
+	r.Group(func(r chi.Router) {
+		r.Get("/login", h.Login)
+		r.Post("/login", h.Login)
+	})
+
+	r.Group(func(r chi.Router) {
+		r.Use(middleware_auth.ValidateJWT)
+		r.Get("/dashboard", h.Dashboard)
+		// r.Get("/products/{id}", h.GetProductByID)
+		// r.Put("/products/{id}", h.UpdateProduct)
+		// r.Delete("/products/{id}", h.DeleteProduct)
+
+	})
+
+	cors := handlers.CORS(
+		handlers.AllowedOrigins([]string{"http://localhost:8080"}),
+		handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}),
+		handlers.AllowedHeaders([]string{"Content-Type", "Authorization"}),
+	)
+
+	return cors(r)
+}

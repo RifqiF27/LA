@@ -6,7 +6,7 @@ import (
 	"fmt"
 )
 
-func SendJSONResponse(status string, message string, data interface{}) {
+func SendJSONResponse(status, message string, data interface{}) {
 	response := collections.Response{
 		Status:  status,
 		Message: message,

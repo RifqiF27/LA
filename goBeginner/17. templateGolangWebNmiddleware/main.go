@@ -35,8 +35,8 @@ func main() {
 	// 	"templates/footer.html",
 	// ))
 
-	fs := http.FileServer(http.Dir("tmpl/static"))
-	http.Handle("/static/", http.StripPrefix("/static/", fs))
+	// fs := http.FileServer(http.Dir("tmpl/static"))
+	// http.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	serverMux := http.NewServeMux()
 
