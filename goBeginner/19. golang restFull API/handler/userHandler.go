@@ -24,7 +24,7 @@ var jwtSecret = []byte(config.GetJWTSecret())
 
 func NewAuthHandler(service service.UserService) *AuthHandler {
 
-	tmpl, err := template.ParseFiles("view/login.html")
+	tmpl, err := template.ParseFiles("view/login.html", "view/dashboard.html")
 	if err != nil {
 		panic(err)
 	}
@@ -104,6 +104,7 @@ func (h *AuthHandler) Login(w http.ResponseWriter, r *http.Request) {
 		}
 		w.Header().Set("Content-Type", "application/json")
 		// w.WriteHeader(http.StatusOK)
+
 		json.NewEncoder(w).Encode(response)
 		http.Redirect(w, r, "/dashboard", http.StatusSeeOther)
 

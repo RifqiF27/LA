@@ -1,4 +1,5 @@
 async function fetchProtectedData() {
+  console.log("masuk fetch");
   const token = localStorage.getItem("authToken");
   console.log("Sending token:", token);
 

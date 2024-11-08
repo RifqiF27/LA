@@ -1,9 +1,14 @@
 package handler
 
 import (
-	"fmt"
+	// "fmt"
+	"log"
 	"net/http"
 )
+
+
+
+
 
 func (h *AuthHandler) dashboard(w http.ResponseWriter, r *http.Request) {
 
@@ -15,7 +20,10 @@ func (h *AuthHandler) dashboard(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *AuthHandler) Dashboard(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("Dashboard endpoint accessed")
+
+	token := r.Header.Get("Authorization")
+	log.Println("Dashboard endpoint accessed token:", token)
+
 	if r.Method == http.MethodGet {
 		h.dashboard(w, r)
 		return
