@@ -3,7 +3,7 @@ package router
 import (
 	"book-store/database"
 	"book-store/handler"
-	"book-store/middleware"
+	middleware_auth "book-store/middleware"
 	"book-store/repository"
 	"book-store/service"
 	"net/http"
@@ -34,13 +34,13 @@ func NewRouter() http.Handler {
 	})
 
 	r.Group(func(r chi.Router) {
-		r.Use(middleware_auth.ValidateJWT)
+		// r.Use(middleware_auth.ValidateJWT)
+		r.Use(middleware_auth.Testing)
+		
 		r.Get("/dashboard", h.Dashboard)
-		// r.Get("/products/{id}", h.GetProductByID)
-		// r.Put("/products/{id}", h.UpdateProduct)
-		// r.Delete("/products/{id}", h.DeleteProduct)
-
 	})
+	
+
 
 	cors := handlers.CORS(
 		handlers.AllowedOrigins([]string{"http://localhost:8080"}),

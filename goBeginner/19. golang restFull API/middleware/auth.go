@@ -3,6 +3,7 @@ package middleware_auth
 import (
 	"book-store/config"
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/golang-jwt/jwt/v4"
@@ -50,3 +51,11 @@ func ValidateJWT(next http.Handler) http.Handler {
 		next.ServeHTTP(w, r)
 	})
 }
+
+func Testing(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	log.Println(r.Header.Get("Authorization"))
+	next.ServeHTTP(w, r)
+	})
+	}
+	

@@ -1,6 +1,6 @@
 async function fetchProtectedData() {
   console.log("masuk fetch");
-  const token = localStorage.getItem("authToken");
+  const token = window.localStorage.getItem("authToken");
   console.log("Sending token:", token);
 
   if (!token) {
@@ -31,6 +31,6 @@ async function fetchProtectedData() {
   }
 }
 
-window.addEventListener("load", function () {
-  fetchProtectedData();
-});
+// window.addEventListener("load", function () {
+//   fetchProtectedData();
+// });

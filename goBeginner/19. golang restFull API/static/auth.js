@@ -16,9 +16,10 @@ async function login(username, password) {
     console.log(data);
 
     if (data.token) {
+      // localStorage.removeItem("authToken");
       localStorage.setItem("authToken", data.token);
       console.log("Login successful. Token stored in localStorage.", data.token);
-      alert("Login successful!");
+      // alert("Login successful!");
       window.location.href = "/dashboard";
     } else {
       throw new Error("Invalid response from server.");
