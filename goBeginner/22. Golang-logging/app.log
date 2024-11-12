@@ -9,3 +9,14 @@
 {"level":"error","ts":1731430189.803072,"msg":"Failed to create book","error":"could not create book: failed to create book: pq: duplicate key value violates unique constraint \"Books_book_code_key\""}
 {"level":"info","ts":1731430201.3438354,"msg":"Creating new book","BookCode":"AZXW12"}
 {"level":"info","ts":1731430275.1308703,"msg":"Creating new book","BookCode":"AZXW1"}
+{"level":"info","ts":1731431389.5355318,"msg":"Request received","method":"GET","url":"/books"}
+{"level":"info","ts":1731431914.7661536,"msg":"Request received","method":"GET","url":"/books"}
+{"level":"warn","ts":1731431914.7666662,"msg":"missing token"}
+{"level":"info","ts":1731431914.7666662,"msg":"Request processed","method":"GET","url":"/books","duration":0.0005128}
+{"level":"info","ts":1731431984.184168,"msg":"Request received","method":"GET","url":"/register"}
+{"level":"info","ts":1731431984.184168,"msg":"Request processed","method":"GET","url":"/register","duration":0}
+{"level":"info","ts":1731432119.2591245,"msg":"Request received","method":"POST","url":"/login"}
+{"level":"info","ts":1731432119.2688012,"msg":"Request processed","method":"POST","url":"/login","duration":0.0096767}
+{"level":"info","ts":1731432148.9054275,"msg":"Request received","method":"GET","url":"/books"}
+{"level":"error","ts":1731432148.9069533,"msg":"Invalid token","error":"signature is invalid"}
+{"level":"info","ts":1731432148.9069533,"msg":"Request processed","method":"GET","url":"/books","duration":0.0015256}

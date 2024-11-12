@@ -35,7 +35,7 @@ func InitializeRouterHandler() (http.Handler, error) {
 	paymentMethodRepository := repository.NewPaymentMethodRepository(db, logger)
 	paymentMethodService := service.NewPaymentMethodService(paymentMethodRepository)
 	paymentMethodHandler := handler.NewPaymentMethodHandler(paymentMethodService, logger)
-	httpHandler := router.NewRouter(authHandler, bookHandler, paymentMethodHandler)
+	httpHandler := router.NewRouter(authHandler, bookHandler, paymentMethodHandler, logger)
 	return httpHandler, nil
 }
 
