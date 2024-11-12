@@ -1,0 +1,11 @@
+{"level":"error","ts":1731424393.7082582,"msg":"invalid value for is_active","error":"strconv.ParseBool: parsing \"\": invalid syntax"}
+{"level":"error","ts":1731424413.3931007,"msg":"Failed to store data payment","error":"name is required"}
+{"level":"error","ts":1731424441.8814485,"msg":"Failed to read photo file","error":"http: no such file"}
+{"level":"error","ts":1731429712.1004891,"msg":"file too large or invalid form data","error":"request Content-Type isn't multipart/form-data"}
+{"level":"info","ts":1731429992.546645,"msg":"Creating new book","BookCode":"AZXW123"}
+{"level":"info","ts":1731430189.780122,"msg":"Creating new book","BookCode":"AZXW123"}
+{"level":"error","ts":1731430189.8003268,"msg":"failed to create book","error":"pq: duplicate key value violates unique constraint \"Books_book_code_key\""}
+{"level":"error","ts":1731430189.8021033,"msg":"Failed to create book","error":"failed to create book: pq: duplicate key value violates unique constraint \"Books_book_code_key\""}
+{"level":"error","ts":1731430189.803072,"msg":"Failed to create book","error":"could not create book: failed to create book: pq: duplicate key value violates unique constraint \"Books_book_code_key\""}
+{"level":"info","ts":1731430201.3438354,"msg":"Creating new book","BookCode":"AZXW12"}
+{"level":"info","ts":1731430275.1308703,"msg":"Creating new book","BookCode":"AZXW1"}
