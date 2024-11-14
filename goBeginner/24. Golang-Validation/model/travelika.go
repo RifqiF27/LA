@@ -31,9 +31,15 @@ type Review struct {
 }
 
 type Transaction struct {
-	ID      int  `json:"id"`
-	EventID int  `json:"event_id"`
-	Status  bool `json:"status"`
+	ID        int       `json:"id"`
+	Name      string    `json:"name" validate:"required"`
+	Email     string    `json:"email" validate:"required,email"`
+	Phone     string    `json:"phone" validate:"required,len=10,numeric"`
+	Comment   string    `json:"comment"`
+	EventID   int       `json:"event_id" validate:"required"`
+	Status    string    `json:"status" validate:"required,oneof=ok cancel"`
+	StatusTrx bool      `json:"-"`
+	CreatedAt time.Time `json:"created_at"`
 }
 
 type DestinationEventRating struct {
@@ -41,7 +47,7 @@ type DestinationEventRating struct {
 	Location      string    `json:"location"`
 	ImageURL      string    `json:"image_url"`
 	Description   string    `json:"description"`
-	Gallery       []Gallery `json:"gallery"`
+	Gallery       []Gallery `json:"gallery,omitempty"`
 	EventName     string    `json:"event_name"`
 	Schedule      time.Time `json:"schedule"`
 	Price         float64   `json:"price"`

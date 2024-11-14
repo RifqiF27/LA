@@ -9,7 +9,7 @@ import (
 	"travelika/handler"
 )
 
-func NewRouter(authHandler *handler.AuthHandler, DestinationHandler *handler.DestinationHandler, log *zap.Logger) http.Handler {
+func NewRouter(authHandler *handler.AuthHandler, DestinationHandler *handler.DestinationHandler, transactionHandler *handler.TransactionHandler, log *zap.Logger) http.Handler {
 	r := chi.NewRouter()
 
 	r.Use(middleware.Logger)
@@ -44,6 +44,9 @@ func NewRouter(authHandler *handler.AuthHandler, DestinationHandler *handler.Des
 		r.Route("/api/destinations", func(r chi.Router) {
 			r.Get("/", DestinationHandler.GetDestination)
 			r.Get("/{id}", DestinationHandler.GetByID)
+		})
+		r.Route("/api/transaction", func(r chi.Router) {
+			r.Post("/", transactionHandler.Create)
 		})
 
 	})

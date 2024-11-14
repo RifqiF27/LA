@@ -33,7 +33,10 @@ func InitializeRouterHandler() (http.Handler, error) {
 	destinationRepository := repository.NewDestinationRepository(db, logger)
 	destinationService := service.NewDestinationService(destinationRepository)
 	destinationHandler := handler.NewDestinationHandler(destinationService, logger)
-	httpHandler := router.NewRouter(authHandler, destinationHandler, logger)
+	transactionsRepository := repository.NewTransactionRepository(db, logger)
+	transactionService := service.NewTransactionService(transactionsRepository)
+	transactionHandler := handler.NewTransactionHandler(transactionService, logger)
+	httpHandler := router.NewRouter(authHandler, destinationHandler, transactionHandler, logger)
 	return httpHandler, nil
 }
 

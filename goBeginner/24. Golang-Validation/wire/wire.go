@@ -48,10 +48,13 @@ func InitializeRouterHandler() (http.Handler, error) {
 		repository.NewUserRepo,
 		repository.NewSessionRepository,
 		repository.NewDestinationRepository,
+		repository.NewTransactionRepository,
 		service.NewUserService,
 		service.NewDestinationService,
+		service.NewTransactionService,
 		handler.NewAuthHandler,
 		handler.NewDestinationHandler,
+		handler.NewTransactionHandler,
 		router.NewRouter,
 	)
 	return nil, nil

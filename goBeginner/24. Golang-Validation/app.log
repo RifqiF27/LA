@@ -117,3 +117,80 @@
 {"level":"info","ts":1731571922.5464156,"msg":"Handler: Received request","method":"GET","path":"/api/destinations"}
 {"level":"info","ts":1731571922.556941,"msg":"Repository: executed query","query":"SELECT d.id, d.location, d.image_url, d.description, \n                     e.name as event, e.schedule, e.price, \n                     COALESCE(AVG(r.rating), 0) as average_rating,\n\t\t\t\t\t COUNT(CASE WHEN t.status = TRUE THEN 1 END) AS people\n              FROM destinations d\n              JOIN events e ON d.id = e.destination_id\n              LEFT JOIN reviews r ON e.id = r.destination_id\n\t\t\t  LEFT JOIN transactions t ON e.id = t.event_id\n              WHERE 1=1 GROUP BY d.id, d.location, d.image_url, d.description, e.name, e.schedule, e.price ORDER BY d.id ASC LIMIT $1 OFFSET $2","params":[6,0]}
 {"level":"info","ts":1731571922.5634995,"msg":"Request processed","method":"GET","url":"/api/destinations","duration":0.0180335}
+{"level":"info","ts":1731590356.4150517,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"info","ts":1731590356.419132,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.0040801}
+{"level":"info","ts":1731590388.803291,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"info","ts":1731590388.8195584,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.0162674}
+{"level":"info","ts":1731590406.408544,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"error","ts":1731590406.408544,"msg":"Handler: invalid request payload","error":"invalid character '}' looking for beginning of object key string"}
+{"level":"info","ts":1731590406.4090507,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.0005067}
+{"level":"info","ts":1731590416.1994362,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"error","ts":1731590416.1999462,"msg":"Handler: invalid request payload","error":"invalid character '}' looking for beginning of value"}
+{"level":"info","ts":1731590416.1999462,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.00051}
+{"level":"info","ts":1731590430.5916781,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"info","ts":1731590430.5980241,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.0063459}
+{"level":"info","ts":1731591440.494081,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"error","ts":1731591440.5006979,"msg":"Handler: validation failed","error":"Name is invalid: required, Phone is invalid: len, Status is invalid: required"}
+{"level":"info","ts":1731591440.5023422,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.008261}
+{"level":"info","ts":1731591477.8072598,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"error","ts":1731591477.8078513,"msg":"Handler: validation failed","error":"Phone is invalid: len, Status is invalid: required"}
+{"level":"info","ts":1731591477.8078513,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.0005914}
+{"level":"info","ts":1731591518.5404437,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"error","ts":1731591518.5404437,"msg":"Handler: validation failed","error":"Status is invalid: required"}
+{"level":"info","ts":1731591518.5476336,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.00719}
+{"level":"info","ts":1731591650.798336,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"info","ts":1731591748.588025,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"error","ts":1731591748.5886333,"msg":"Handler: invalid request payload","error":"json: cannot unmarshal bool into Go struct field Transaction.status of type string"}
+{"level":"info","ts":1731591748.5891376,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.0011127}
+{"level":"info","ts":1731591763.9532557,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"info","ts":1731591763.9662013,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.0123345}
+{"level":"info","ts":1731591826.6976726,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"error","ts":1731591826.709599,"msg":"Handler: invalid created transaction","error":"pq: invalid input syntax for type boolean: \"ok\""}
+{"level":"info","ts":1731591826.7105541,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.0128814}
+{"level":"info","ts":1731591995.9951959,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"info","ts":1731591996.00384,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.0086441}
+{"level":"info","ts":1731592008.607547,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"info","ts":1731592008.614602,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.007055}
+{"level":"info","ts":1731592228.2947233,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"info","ts":1731592228.3003259,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.0056027}
+{"level":"info","ts":1731592237.4901333,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"info","ts":1731592237.4947948,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.0046616}
+{"level":"info","ts":1731592245.7672176,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"error","ts":1731592245.7677913,"msg":"Handler: validation failed","error":"Email is invalid: email"}
+{"level":"info","ts":1731592245.767859,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.0006413}
+{"level":"info","ts":1731592260.6529958,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"error","ts":1731592260.6529958,"msg":"Handler: validation failed","error":"Name is invalid: required, Email is invalid: email"}
+{"level":"info","ts":1731592260.6529958,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0}
+{"level":"info","ts":1731592272.5195107,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"error","ts":1731592272.5195107,"msg":"Handler: validation failed","error":"Name is invalid: required, Phone is invalid: len"}
+{"level":"info","ts":1731592272.5200164,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.0005056}
+{"level":"info","ts":1731592299.4592538,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"error","ts":1731592299.4599972,"msg":"Handler: validation failed","error":"Phone is invalid: len, StatusText is invalid: required"}
+{"level":"info","ts":1731592299.4599972,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.0007434}
+{"level":"info","ts":1731592307.5972683,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"error","ts":1731592307.598066,"msg":"Handler: validation failed","error":"StatusText is invalid: required"}
+{"level":"info","ts":1731592307.598066,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.000798}
+{"level":"info","ts":1731592509.2347941,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"error","ts":1731592509.2354336,"msg":"Handler: validation failed","error":"Status is invalid: required"}
+{"level":"info","ts":1731592509.2405443,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.0057501}
+{"level":"info","ts":1731592520.8610861,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"info","ts":1731592520.8630407,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.0019547}
+{"level":"info","ts":1731592529.9657679,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"info","ts":1731592529.9662724,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.0005043}
+{"level":"info","ts":1731592784.2264955,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"error","ts":1731592784.2270052,"msg":"Handler: validation failed","error":"Status is invalid: required"}
+{"level":"info","ts":1731592784.2270052,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.0005098}
+{"level":"info","ts":1731593299.006071,"msg":"Request received","method":"POST","url":"/api/transaction"}
+{"level":"error","ts":1731593299.0065763,"msg":"Handler: validation failed","error":"Status is required and must be either 'ok' or 'cancel'"}
+{"level":"info","ts":1731593299.0072076,"msg":"Request processed","method":"POST","url":"/api/transaction","duration":0.0011367}
+{"level":"info","ts":1731593565.763416,"msg":"Request received","method":"GET","url":"/api/destinations"}
+{"level":"info","ts":1731593565.7639208,"msg":"Handler: Received request","method":"GET","path":"/api/destinations"}
+{"level":"info","ts":1731593565.7704291,"msg":"Repository: executed query","query":"SELECT d.id, d.location, d.image_url, d.description, \n                     e.name as event, e.schedule, e.price, \n                     COALESCE(AVG(r.rating), 0) as average_rating,\n\t\t\t\t\t COUNT(CASE WHEN t.status = TRUE THEN 1 END) AS people\n              FROM destinations d\n              JOIN events e ON d.id = e.destination_id\n              LEFT JOIN reviews r ON e.id = r.destination_id\n\t\t\t  LEFT JOIN transactions t ON e.id = t.event_id\n              WHERE 1=1 GROUP BY d.id, d.location, d.image_url, d.description, e.name, e.schedule, e.price ORDER BY d.id ASC LIMIT $1 OFFSET $2","params":[6,0]}
+{"level":"info","ts":1731593565.7740993,"msg":"Request processed","method":"GET","url":"/api/destinations","duration":0.0106835}
+{"level":"info","ts":1731593585.6126306,"msg":"Request received","method":"GET","url":"/api/destinations"}
+{"level":"info","ts":1731593585.613134,"msg":"Handler: Received request","method":"GET","path":"/api/destinations"}
+{"level":"info","ts":1731593585.6169007,"msg":"Repository: executed query","query":"SELECT d.id, d.location, d.image_url, d.description, \n                     e.name as event, e.schedule, e.price, \n                     COALESCE(AVG(r.rating), 0) as average_rating,\n\t\t\t\t\t COUNT(CASE WHEN t.status = TRUE THEN 1 END) AS people\n              FROM destinations d\n              JOIN events e ON d.id = e.destination_id\n              LEFT JOIN reviews r ON e.id = r.destination_id\n\t\t\t  LEFT JOIN transactions t ON e.id = t.event_id\n              WHERE 1=1 GROUP BY d.id, d.location, d.image_url, d.description, e.name, e.schedule, e.price ORDER BY d.id ASC LIMIT $1 OFFSET $2","params":[6,0]}
+{"level":"info","ts":1731593585.61991,"msg":"Request processed","method":"GET","url":"/api/destinations","duration":0.0072793}
+{"level":"info","ts":1731593598.177647,"msg":"Request received","method":"GET","url":"/api/destinations/1"}
+{"level":"info","ts":1731593598.1781516,"msg":"Handler: Received request","method":"GET","path":"/api/destinations/1"}
+{"level":"info","ts":1731593598.1858892,"msg":"Request processed","method":"GET","url":"/api/destinations/1","duration":0.0082423}
