@@ -44,6 +44,8 @@ func NewRouter(authHandler *handler.AuthHandler, DestinationHandler *handler.Des
 		r.Route("/api/destinations", func(r chi.Router) {
 			r.Get("/", DestinationHandler.GetDestination)
 			r.Get("/{id}", DestinationHandler.GetByID)
+			r.Get("/{id}/tour-plans", DestinationHandler.GetTourPlansByEventID)
+			r.Get("/{id}/location", DestinationHandler.GetLocationsByDestinationID)
 		})
 		r.Route("/api/transaction", func(r chi.Router) {
 			r.Post("/", transactionHandler.Create)

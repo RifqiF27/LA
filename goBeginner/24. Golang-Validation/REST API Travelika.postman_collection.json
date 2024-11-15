@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:8080/api/destinations",
+			"name": "Get All Destinations",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -148,7 +148,7 @@
 						},
 						{
 							"key": "page",
-							"value": "1",
+							"value": "2",
 							"disabled": true
 						}
 					]
@@ -157,7 +157,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/api/destinations Copy",
+			"name": "Get By ID Destination",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -255,7 +255,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/destinations",
+					"raw": "http://localhost:8080/api/destinations/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -263,7 +263,8 @@
 					"port": "8080",
 					"path": [
 						"api",
-						"destinations"
+						"destinations",
+						"1"
 					],
 					"query": [
 						{
@@ -307,7 +308,311 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/api/destinations Copy 2",
+			"name": "Get Tour Plan By EventID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "isSecretBase64Encoded",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "secret",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzE1MTg1MTksInJvbGUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJuYW1lIjoiYWRtaW4ifQ.C8lWE8cFP2DW8d_IhUzt9mLhx3wsj5t2qHCnG_RfOao",
+							"type": "string"
+						},
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "book_code",
+							"value": "AZXW143",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "Anonymous",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "author",
+							"value": "John Doe",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "200000",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "cover",
+							"type": "file",
+							"src": "/C:/Users/Rifqi Fadluloh/OneDrive/Pictures/Screenshots/1.png"
+						},
+						{
+							"key": "file_book",
+							"type": "file",
+							"src": "/C:/Users/Rifqi Fadluloh/OneDrive/Pictures/Screenshots/1.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/destinations/1/tour-plans",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"destinations",
+						"1",
+						"tour-plans"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2024-11-20",
+							"disabled": true
+						},
+						{
+							"key": "event_name",
+							"value": "walk",
+							"disabled": true
+						},
+						{
+							"key": "location",
+							"value": "bali",
+							"disabled": true
+						},
+						{
+							"key": "low_to_high",
+							"value": "price",
+							"disabled": true
+						},
+						{
+							"key": "orderDesc",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "6",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Location By DestinationID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "isSecretBase64Encoded",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "secret",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzE1MTg1MTksInJvbGUiOiJhZG1pbiIsInVzZXJfaWQiOjEsInVzZXJuYW1lIjoiYWRtaW4ifQ.C8lWE8cFP2DW8d_IhUzt9mLhx3wsj5t2qHCnG_RfOao",
+							"type": "string"
+						},
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "book_code",
+							"value": "AZXW143",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "Anonymous",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "author",
+							"value": "John Doe",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "200000",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "cover",
+							"type": "file",
+							"src": "/C:/Users/Rifqi Fadluloh/OneDrive/Pictures/Screenshots/1.png"
+						},
+						{
+							"key": "file_book",
+							"type": "file",
+							"src": "/C:/Users/Rifqi Fadluloh/OneDrive/Pictures/Screenshots/1.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/destinations/1/location",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"destinations",
+						"1",
+						"location"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2024-11-20",
+							"disabled": true
+						},
+						{
+							"key": "event_name",
+							"value": "walk",
+							"disabled": true
+						},
+						{
+							"key": "location",
+							"value": "bali",
+							"disabled": true
+						},
+						{
+							"key": "low_to_high",
+							"value": "price",
+							"disabled": true
+						},
+						{
+							"key": "orderDesc",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "6",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Transaction",
 			"request": {
 				"auth": {
 					"type": "jwt",

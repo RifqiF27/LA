@@ -61,7 +61,35 @@ func (h *DestinationHandler) GetByID(w http.ResponseWriter, r *http.Request) {
 
 	item, err := h.Service.GetById(id)
 	if err != nil {
-		h.Log.Warn("Handler: Destination not found", zap.Error(err) )
+		h.Log.Error("Handler: Destination not found", zap.Error(err) )
+		utils.SendJSONResponse(w, false, http.StatusNotFound, "Destination not found", nil)
+		return
+	}
+
+	utils.SendJSONResponse(w, true, http.StatusOK, "", item)
+}
+func (h *DestinationHandler) GetTourPlansByEventID(w http.ResponseWriter, r *http.Request) {
+	id, _ := strconv.Atoi(chi.URLParam(r, "id"))
+
+	h.Log.Info("Handler: Received request", zap.String("method", r.Method), zap.String("path", r.URL.Path))
+
+	item, err := h.Service.GetTourPlansByEventID(id)
+	if err != nil {
+		h.Log.Error("Handler: event not found", zap.Error(err) )
+		utils.SendJSONResponse(w, false, http.StatusNotFound, "event not found", nil)
+		return
+	}
+
+	utils.SendJSONResponse(w, true, http.StatusOK, "", item)
+}
+func (h *DestinationHandler) GetLocationsByDestinationID(w http.ResponseWriter, r *http.Request) {
+	id, _ := strconv.Atoi(chi.URLParam(r, "id"))
+
+	h.Log.Info("Handler: Received request", zap.String("method", r.Method), zap.String("path", r.URL.Path))
+
+	item, err := h.Service.GetLocationsByDestinationID(id)
+	if err != nil {
+		h.Log.Error("Handler: destination not found", zap.Error(err) )
 		utils.SendJSONResponse(w, false, http.StatusNotFound, "Destination not found", nil)
 		return
 	}

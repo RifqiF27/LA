@@ -17,8 +17,15 @@ func (s *DestinationService) GetAllEvents(eventName, location string, date strin
 	return s.Repo.GetAllEvents(eventName, location, date, orderBy, orderAsc, limit, page)
 }
 
-func (s *DestinationService) GetById(id int) (model.DestinationEventRating, error) {
+func (s *DestinationService) GetById(id int) (*model.DestinationEventRating, error) {
 	return s.Repo.GetById(id)
+}
+
+func (s *DestinationService) GetTourPlansByEventID(id int) (*model.TourPlan, error) {
+	return s.Repo.GetTourPlansByEventID(id)
+}
+func (s *DestinationService) GetLocationsByDestinationID(id int) (*model.Location, error) {
+	return s.Repo.GetLocationsByDestinationID(id)
 }
 
 
