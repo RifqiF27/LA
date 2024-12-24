@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package event;
+
+option go_package = "./";
+
+import "google/protobuf/empty.proto";
+
+service EventService {
+  rpc GetEvents(google.protobuf.Empty) returns (EventListResponse);
+  rpc GetEventDetail(EventRequest) returns (EventResponse);
+}
+
+message Event {
+  int32 id = 1;
+  string title = 2;
+  string description = 3;
+  string date = 4;
+  string location = 5;
+}
+
+message EventListResponse {
+  repeated Event events = 1;
+}
+
+message EventRequest {
+  int32 id = 1;
+}
+
+message EventResponse {
+  Event event = 1;
+}

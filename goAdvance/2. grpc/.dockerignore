@@ -1,0 +1,10 @@
+# Exclude modul lokal dan file build
+vendor/
+*.log
+*.tmp
+*.out
+*.exe
+*.bin
+.DS_Store
+.idea/
+.vscode/
